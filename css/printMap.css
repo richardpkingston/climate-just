@@ -1,0 +1,61 @@
+/* Map printing layout using a Bootstrap grid */
+.grid-print-container {
+    display: grid;
+    /*width: 3508px;
+    height: 2480px;*/
+    grid-template-columns: 3200px 400px;
+    grid-gap: 15px;
+}
+
+.grid-print-container > .print-title {
+    border: 1px solid;
+    /*padding: 10px;*/
+    box-shadow: 2px 4px #888888;
+    border-radius: 5px;
+    padding-left: 50px;
+    z-index: 999;
+    color: #000000;
+    text-align: left;
+}
+.grid-print-container > .print-map,
+.grid-print-container > .print-info {
+    text-align: left;
+}
+.grid-print-container > .print-legend,
+.grid-print-container > .print-copyright {
+    text-align: left;
+    font-size: smaller;
+}
+
+.print-title {
+    grid-row: 4;
+    grid-column: 1;
+}
+.print-map {
+    grid-row: 1 / span 3;
+    grid-column: 1;
+}
+.print-legend {
+    grid-row: 1 / span 3;
+    grid-column: 2;
+}
+.print-info {
+    grid-row: 3;
+    grid-column: 1;
+    z-index: 999;
+    text-align: left;
+    width: 40%;
+    background: #ffffff;
+}
+.print-copyright {
+    grid-row: 5;
+    grid-column: 1;
+    padding-left: 10px;
+}
+
+[leaflet-browser-print-pages] {
+   /* display: contents; /*none;*/
+}
+.pages-print-container [leaflet-browser-print-pages] {
+    display: contents; /*block;*/
+}

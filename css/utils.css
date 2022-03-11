@@ -1,0 +1,129 @@
+/* stops the nav bar disappearing when the map is moved */
+#content {
+    height: 100%;
+}
+#map {
+    height: 84%;
+}
+#flyTo {
+    position: absolute;
+    top: 10px;
+    left: 550px;
+    z-index: 999;
+}
+#map-info-footer {
+    bottom: 10px;
+    position: absolute;
+    height: 15%;
+    width: 100%;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+/* change default mouse cursor */
+.leaflet-grab {
+    cursor: crosshair;
+}
+
+.leaflet-dragging .leaflet-grab {
+    cursor: move;
+}
+
+td.middle {
+    vertical-align: middle;
+}
+
+td.rcp {
+    text-align: center;
+}
+
+.table-condensed {
+    font-size: 10pt;
+}
+
+.modal-text {
+    font-size: 10pt;
+}
+
+.plain {
+    background-color: white;
+}
+
+.text-height-0 {
+    line-height: 0;
+}
+
+.text-height-1 {
+    line-height: 1rem;
+}
+
+.text-height-2 {
+    line-height: 1.5rem;
+}
+
+.text-height-3 {
+    line-height: 2rem;
+}
+
+.text-height-4 {
+    line-height: 3rem;
+}
+
+.text-height-5 {
+    line-height: 4rem;
+}
+
+.text-height-auto {
+    line-height: auto;
+}
+
+.tab-pane {
+    padding-top: 5px;
+}
+
+#mapTabs .nav-tabs > li > a {
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #df006d;
+    border-bottom: transparent;
+}
+
+.leaflet-control-scalefactor {
+    border: 2px solid #777;
+    line-height: 1.1;
+    padding: 2px 5px 1px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.leaflet-control-scalefactor.leaflet-control {
+    margin-left: 5px;
+}
+
+.modal {
+    z-index: 9999999;
+}
+
+.modal-lg {
+    max-width: 70%;
+    overflow-scrolling: auto;
+}
+
+.modal-body {
+    height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-dialog {
+    max-width: 600px;
+}
+
+.border {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+}

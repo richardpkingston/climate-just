@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+#report {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 2px 4px #888888;
+    border-radius: 5px;
+    /* Stop attribute report going over the legend on the printed report */
+    width: 70%
+}
+.attributeText {
+    font-family: Verdana, Tahoma, Helvetica, Arial, sans-serif;
+    left: 5px;
+    padding: 2px;
+    font-size: 8pt;
+}
+ul,ol {
+    list-style-position: inside;
+}

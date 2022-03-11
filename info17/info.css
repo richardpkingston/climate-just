@@ -1,0 +1,35 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html {
+	font-family: "Montserrat, Arial, Helvetica, sans-serif";
+}
+body {
+	/*background-image: url("../css/images/climatejust_logo_small.png");
+	background-repeat: no-repeat;
+	background-size: 25%;
+    background-attachment: scroll;
+    background-position: right top;*/
+	height: 100%;
+	margin: 5px;
+	font-size: 10pt;
+}
+p {
+	font-size: 10pt;
+}
+table {
+	border: 1px solid #428BCA;
+	padding-top: 5px;
+
+}
+th {
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid #428BCA;
+}
+td {
+	padding: 5px;
+	border: 1px solid #428BCA;
+	vertical-align: top;
+}
+.btn {
+    margin-bottom: 5px;
+}

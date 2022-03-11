@@ -1,0 +1,33 @@
+<script>
+    // Allows links to open in same modal window
+    $('.lnk').click(function () {
+        var lnk = $(this).data("src");
+        $('.modal-body').text('wait..');
+        $('.modal-body').load(lnk, function () {
+
+        });
+    })
+</script>
+<div class="panel-body">
+    <h4>Heat socio-spatial vulnerability</h4>
+    <p>Heat socio-spatial vulnerability refers to mapped social vulnerability with respect to heat-related hazard. The map shows how the personal, social and
+        environmental factors which help to explain uneven impacts on people and communities come together in particular neighbourhoods. It shows where negative
+        social impacts are more likely. This information can then be combined with the likelihood of events occurring to understand how this social
+        vulnerability and potential for negative impacts translates into disadvantage. The heat socio-spatial vulnerability map shows the result of an
+        equally-weighted combination of neighbourhood-level scores for indicators within each of the five dimensions of socio-spatial vulnerability for each
+        neighbourhood:</p>
+    <ul>
+        <li><a href="#" data-src="info17/sheet16.html" class="lnk">Sensitivity</a></li>
+        <li><a href="#" data-src="info17/sheet18.html" class="lnk">Enhanced Exposure</a></li>
+        <li><a href="#" data-src="info17/sheet20.html" class="lnk">(In)ability to Prepare</a></li>
+        <li><a href="#" data-src="info17/sheet22.html" class="lnk">(In)ability to Respond</a></li>
+        <li><a href="#" data-src="info17/sheet24.html" class="lnk">(In)ability to Recover</a></li>
+    </ul>
+    <p>Neighbourhood mapping uses Middle Super Output Areas (MSOAs) from the UK Census, 2011. More information is available in the ClimateJust user guide and
+        list of limitations . This area-based representation provides only a broad, national-scale indication of local patterns and users are strongly
+        encouraged to build on this starting point with finer scale geographical data and other local data holdings.</p>
+    <p>Acknowledgements: See indicator information for relevant data acknowledgements for the inputs to this dataset. Mapping is based on Office for National
+        Statistics, 2011 Census: Digitised Boundary Data (England and Wales) [computer file]. UK Data Service Census Support. Downloaded from: <a
+                href="http://census.edina.ac.uk/" target="_blank">http://census.edina.ac.uk/</a></p>
+</div>
+

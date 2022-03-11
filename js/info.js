@@ -1,0 +1,636 @@
+// Mapping info sheets
+var infoLinks = [{
+    treeNode: "n-1a",
+    infoRef: "nfvi.html"
+}, {
+    treeNode: "n-1-1a",
+    infoRef: "nfvi.html"
+}, {
+    treeNode: "n-1-2a",
+    infoRef: "nfvi.html"
+}, {
+    treeNode: "n-1-3a",
+    infoRef: "nfvi.html"
+}, {
+    treeNode: "n-1-4a",
+    infoRef: "nfvi.html"
+}, {
+    treeNode: "n-1-5a",
+    infoRef: "nfvi.html"
+}, {
+    treeNode: "n-1-1-1-1",
+    infoRef: "age_05.html"
+}, {
+    treeNode: "n-1-1-1-2",
+    infoRef: "age_75.html"
+}, {
+    treeNode: "n-1-1-2-1",
+    infoRef: "healthH1.html"
+}, {
+    treeNode: "n-1-1-2-2",
+    infoRef: "healthH2.html"
+}, /*{
+    treeNode: "n-1-2-1a",
+    infoRef: "income_i1_5.html"
+},*/ {
+    treeNode: "n-1-2-1-1",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-2-1-2",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-2-1-3",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-2-1-4",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-2-1-5",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-2-4a",
+    infoRef: "tenure_T1_T2.html"
+}, {
+    treeNode: "n-1-2-4-1",
+    infoRef: "tenure_T1_T2.html"
+}, {
+    treeNode: "n-1-2-4-2",
+    infoRef: "tenure_T1_T2.html"
+}, {
+    treeNode: "n-1-2-2a",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-2-2-1",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-2-2-2",
+    infoRef: "information_use_F1_2.html"
+},/* {
+    treeNode: "n-1-3-1a",
+    infoRef: "income_i1_5.html"
+},*/ {
+    treeNode: "n-1-3-1-1",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-3-1-2",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-3-1-3",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-3-1-4",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-3-1-5",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-3-2a",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-3-2-1",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-3-2-2",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-2-3a",
+    infoRef: "local_knowledge_K1.html"
+}, {
+    treeNode: "n-1-2-3-1",
+    infoRef: "local_knowledge_K1.html"
+}, {
+    treeNode: "n-1-3-3a",
+    infoRef: "local_knowledge_K1.html"
+}, {
+    treeNode: "n-1-3-3-1",
+    infoRef: "local_knowledge_K1.html"
+}, {
+    treeNode: "n-1-3-4a",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-3-4-1",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-3-4-2",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-3-4-3",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-3-5a",
+    infoRef: "crimeC1.html"
+}, {
+    treeNode: "n-1-3-5-1",
+    infoRef: "crimeC1.html"
+}, /*{
+    treeNode: "n-1-4-1a",
+    infoRef: "income_i1_5.html"
+},*/ {
+    treeNode: "n-1-4-1-1",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-4-1-2",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-4-1-3",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-4-1-4",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-4-1-5",
+    infoRef: "income_i1_5.html"
+}, {
+    treeNode: "n-1-4-2a",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-4-2-1",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-4-2-2",
+    infoRef: "information_use_F1_2.html"
+}, {
+    treeNode: "n-1-4-3a",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-4-3-1",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-4-3-2",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-4-3-3",
+    infoRef: "physical_mobility.html"
+}, {
+    treeNode: "n-1-5-1a",
+    infoRef: "caravanL1.html"
+}, {
+    treeNode: "n-1-5-1-1",
+    infoRef: "caravanL1.html"
+}, {
+    treeNode: "n-1-5-2-1",
+    infoRef: "direct-flood_E1.html"
+}, {
+    treeNode: "n-1-5-3a",
+    infoRef: "service_availability.html"
+}, {
+    treeNode: "n-1-5-3-1",
+    infoRef: "service_availability.html"
+}, {
+    treeNode: "n-1-5-3-2",
+    infoRef: "service_availability.html"
+}, {
+    treeNode: "n-1-5-3-3",
+    infoRef: "service_availability.html"
+}, {
+    treeNode: "n-1-5-3-4",
+    infoRef: "service_availability.html"
+}, {
+    treeNode: "n-1-5-4a",
+    infoRef: "social_networks.html"
+}, {
+    treeNode: "n-1-5-4-1",
+    infoRef: "social_networks.html"
+}, {
+    treeNode: "n-1-5-4-2",
+    infoRef: "social_networks.html"
+}, {
+    treeNode: "n-1-5-4-3",
+    infoRef: "social_networks.html"
+}, {
+    // Social Flood Risk Index (SFRI)
+    treeNode: "n-2",
+    infoRef: "sfri.html"
+}, {
+    treeNode: "n-02-01",
+    infoRef: "sheet4.html"
+}, {
+    treeNode: "n-02-03",
+    infoRef: "sheet5.html"
+}, {
+    treeNode: "n-03-01",
+    infoRef: "sheet16.html"
+}, {
+    treeNode: "n-03-02",
+    infoRef: "sheet17.html"
+}, {
+    treeNode: "n-03-03",
+    infoRef: "sheet19.html"
+}, {
+    treeNode: "n-03-04",
+    infoRef: "sheet21.html"
+}, {
+    treeNode: "n-03-05",
+    infoRef: "sheet23.html"
+}, {
+    treeNode: "n-03-06",
+    infoRef: "sheet6.html"
+}, {
+    // Heat disadvantage (2011) info sheets
+    treeNode: "n-04",
+    infoRef: "sheet7.html"
+}, {
+    treeNode: "n-04-01-01",
+    infoRef: "sheet8.html"
+}, {
+    treeNode: "n-04-01-01-01-02",
+    infoRef: "sheet9.html"
+}, {
+    // Heat exposure (2011) info sheets
+    treeNode: "n-05",
+    infoRef: "sheet10.html"
+}, {
+    treeNode: "n-05-01",
+    infoRef: "sheet11.html"
+}, {
+    treeNode: "n-05-02",
+    infoRef: "sheet12.html"
+}, {
+    treeNode: "n-05-03",
+    infoRef: "sheet13.html"
+}, {
+    treeNode: "n-05-04",
+    infoRef: "sheet14.html"
+}, {
+    // Heat socio-spatial vulnerability (2011) info sheets
+    treeNode: "n-06",
+    infoRef: "sheet15.html"
+}, {
+    treeNode: "n-06-01-index",
+    infoRef: "sheet15.html"
+}, {
+    treeNode: "n-06-01-Sensitivity-index",
+    infoRef: "sheet16.html"
+}, {
+    treeNode: "n-06-01",
+    infoRef: "sheet16.html"
+}, {
+    treeNode: "n-06-02",
+    infoRef: "sheet18.html"
+}, {
+    treeNode: "n-06-03",
+    infoRef: "sheet20.html"
+}, {
+    treeNode: "n-06-04",
+    infoRef: "sheet22.html"
+}, {
+    treeNode: "n-06-05",
+    infoRef: "sheet24.html"
+}, {
+    treeNode: "n-03-03-01-01",
+    infoRef: "AT0_1_AT1_1_AT2_1.html"
+}, {
+    treeNode: "n-03-04-01-01",
+    infoRef: "AT0_1_AT1_1_AT2_1.html"
+}, {
+    treeNode: "n-03-05-01-01",
+    infoRef: "AT0_1_AT1_1_AT2_1.html"
+}, {
+    treeNode: "n-06-03-01-01",
+    infoRef: "AT0_1_AT1_1_AT2_1.html"
+}, {
+    treeNode: "n-06-04-01-01",
+    infoRef: "AT0_1_AT1_1_AT2_1.html"
+}, {
+    treeNode: "n-03-03-01-02",
+    infoRef: "AT0_2_AT1_2_AT2_2.html"
+}, {
+    treeNode: "n-03-04-01-02",
+    infoRef: "AT0_2_AT1_2_AT2_2.html"
+}, {
+    treeNode: "n-03-05-01-02",
+    infoRef: "AT0_2_AT1_2_AT2_2.html"
+}, {
+    treeNode: "n-06-03-01-02",
+    infoRef: "AT0_2_AT1_2_AT2_2.html"
+}, {
+    treeNode: "n-06-04-01-02",
+    infoRef: "AT0_2_AT1_2_AT2_2.html"
+}, {
+    treeNode: "n-03-03-01-03",
+    infoRef: "AT0_3_AT1_3_AT2_3.html"
+}, {
+    treeNode: "n-03-04-01-03",
+    infoRef: "AT0_3_AT1_3_AT2_3.html"
+}, {
+    treeNode: "n-03-05-01-03",
+    infoRef: "AT0_3_AT1_3_AT2_3.html"
+}, {
+    treeNode: "n-06-03-01-03",
+    infoRef: "AT0_3_AT1_3_AT2_3.html"
+}, {
+    treeNode: "n-06-04-01-03",
+    infoRef: "AT0_3_AT1_3_AT2_3.html"
+}, {
+    treeNode: "n-03-03-01-04",
+    infoRef: "AT0_4_AT1_4_AT2_4.html"
+}, {
+    treeNode: "n-03-04-01-04",
+    infoRef: "AT0_4_AT1_4_AT2_4.html"
+}, {
+    treeNode: "n-03-05-01-04",
+    infoRef: "AT0_4_AT1_4_AT2_4.html"
+}, {
+    treeNode: "n-06-03-01-04",
+    infoRef: "AT0_4_AT1_4_AT2_4.html"
+}, {
+    treeNode: "n-06-04-01-04",
+    infoRef: "AT0_4_AT1_4_AT2_4.html"
+}, {
+    treeNode: "n-03-03-01-05",
+    infoRef: "AT0_9_AT1_9_AT2_9.html"
+}, {
+    treeNode: "n-03-04-01-05",
+    infoRef: "AT0_9_AT1_9_AT2_9.html"
+}, {
+    treeNode: "n-03-05-01-05",
+    infoRef: "AT0_9_AT1_9_AT2_9.html"
+}, {
+    treeNode: "n-06-03-01-05",
+    infoRef: "AT0_9_AT1_9_AT2_9.html"
+}, {
+    treeNode: "n-06-04-01-05",
+    infoRef: "AT0_9_AT1_9_AT2_9.html"
+}, {
+    treeNode: "n-03-03-01-06",
+    infoRef: "AT0_10_AT1_10_AT2_10.html"
+}, {
+    treeNode: "n-03-04-01-06",
+    infoRef: "AT0_10_AT1_10_AT2_10.html"
+}, {
+    treeNode: "n-03-05-01-06",
+    infoRef: "AT0_10_AT1_10_AT2_10.html"
+}, {
+    treeNode: "n-06-03-01-06",
+    infoRef: "AT0_10_AT1_10_AT2_10.html"
+}, {
+    treeNode: "n-06-04-01-06",
+    infoRef: "AT0_10_AT1_10_AT2_10.html"
+}, {
+    treeNode: "n-03-03-02-01",
+    infoRef: "AT0_11.html"
+}, {
+    treeNode: "n-06-03-02-01",
+    infoRef: "AT0_11.html"
+}, {
+    treeNode: "n-03-03-02-02",
+    infoRef: "AT0_12.html"
+}, {
+    treeNode: "n-06-03-02-02",
+    infoRef: "AT0_12.html"
+}, {
+    treeNode: "n-03-03-03-01",
+    infoRef: "AT0_13_AT1_13_AT2_12.html"
+}, {
+    treeNode: "n-03-04-02-01",
+    infoRef: "AT0_13_AT1_13_AT2_12.html"
+}, {
+    treeNode: "n-03-05-02-01",
+    infoRef: "AT0_13_AT1_13_AT2_12.html"
+}, {
+    treeNode: "n-06-03-03-01",
+    infoRef: "AT0_13_AT1_13_AT2_12.html"
+}, {
+    treeNode: "n-06-04-02-01",
+    infoRef: "AT0_13_AT1_13_AT2_12.html"
+}, {
+    treeNode: "n-06-05-01-01",
+    infoRef: "AT0_13_AT1_13_AT2_12.html"
+}, {
+    treeNode: "n-03-03-04-01",
+    infoRef: "AT0_24_AT1_20.html"
+}, {
+    treeNode: "n-03-04-03-01",
+    infoRef: "AT0_24_AT1_20.html"
+}, {
+    treeNode: "n-03-03-05-01",
+    infoRef: "AT0_25_AT1_21_AT2_16.html"
+}, {
+    treeNode: "n-03-04-04-01",
+    infoRef: "AT0_25_AT1_21_AT2_16.html"
+}, {
+    treeNode: "n-03-05-03-01",
+    infoRef: "AT0_25_AT1_21_AT2_16.html"
+}, {
+    treeNode: "n-03-03-03-02",
+    infoRef: "AT0_26_AT1_39_AT2_53.html"
+}, {
+    treeNode: "n-03-04-02-02",
+    infoRef: "AT0_26_AT1_39_AT2_53.html"
+}, {
+    treeNode: "n-03-05-02-02",
+    infoRef: "AT0_26_AT1_39_AT2_53.html"
+}, {
+    treeNode: "n-06-03-03-02",
+    infoRef: "AT0_26_AT1_39_AT2_53.html"
+}, {
+    treeNode: "n-06-04-02-02",
+    infoRef: "AT0_26_AT1_39_AT2_53.html"
+}, {
+    treeNode: "n-06-05-01-02",
+    infoRef: "AT0_26_AT1_39_AT2_53.html"
+}, {
+    treeNode: "n-03-04-05-01",
+    infoRef: "AT1_23_AT2_18.html"
+}, {
+    treeNode: "n-03-05-04-01",
+    infoRef: "AT1_23_AT2_18.html"
+}, {
+    treeNode: "n-06-04-03-01",
+    infoRef: "AT1_23_AT2_18.html"
+}, {
+    treeNode: "n-06-05-02-01",
+    infoRef: "AT1_23_AT2_18.html"
+}, {
+    treeNode: "n-03-04-05-02",
+    infoRef: "AT1_26_AT2_21.html"
+}, {
+    treeNode: "n-03-05-04-02",
+    infoRef: "AT1_26_AT2_21.html"
+}, {
+    treeNode: "n-06-04-03-02",
+    infoRef: "AT1_26_AT2_21.html"
+}, {
+    treeNode: "n-06-05-02-02",
+    infoRef: "AT1_26_AT2_21.html"
+}, {
+    treeNode: "n-03-04-05-03",
+    infoRef: "AT1_28_AT2_23.html"
+}, {
+    treeNode: "n-03-05-04-03",
+    infoRef: "AT1_28_AT2_23.html"
+}, {
+    treeNode: "n-06-04-03-03",
+    infoRef: "AT1_28_AT2_23.html"
+}, {
+    treeNode: "n-06-05-02-03",
+    infoRef: "AT1_28_AT2_23.html"
+}, {
+    treeNode: "n-03-04-06-01",
+    infoRef: "AT1_29_AT2_24.html"
+}, {
+    treeNode: "n-03-05-05-01",
+    infoRef: "AT1_29_AT2_24.html"
+}, {
+    treeNode: "n-06-04-04-01",
+    infoRef: "AT1_29_AT2_24.html"
+}, {
+    treeNode: "n-06-05-03-01",
+    infoRef: "AT1_29_AT2_24.html"
+}, {
+    treeNode: "n-03-04-06-02",
+    infoRef: "AT1_30_AT2_25.html"
+}, {
+    treeNode: "n-03-05-05-02",
+    infoRef: "AT1_30_AT2_25.html"
+}, {
+    treeNode: "n-06-04-04-02",
+    infoRef: "AT1_30_AT2_25.html"
+}, {
+    treeNode: "n-06-05-03-02",
+    infoRef: "AT1_30_AT2_25.html"
+}, {
+    treeNode: "n-03-04-07-01",
+    infoRef: "AT1_33.html"
+}, {
+    treeNode: "n-06-04-05-01",
+    infoRef: "AT1_33.html"
+}, {
+    treeNode: "n-03-04-08-01",
+    infoRef: "AT1_35.html"
+}, {
+    treeNode: "n-06-04-06-01",
+    infoRef: "AT1_35.html"
+}, {
+    treeNode: "n-06-04-07-01",
+    infoRef: "AT1_36.html"
+}, {
+    treeNode: "n-06-04-07-02",
+    infoRef: "AT1_37.html"
+}, {
+    treeNode: "n-03-04-06-03",
+    infoRef: "AT1_40_AT2_55.html"
+}, {
+    treeNode: "n-03-05-05-03",
+    infoRef: "AT1_40_AT2_55.html"
+}, {
+    treeNode: "n-06-05-03-03",
+    infoRef: "AT1_40_AT2_55.html"
+}, {
+    treeNode: "n-06-05-04-01",
+    infoRef: "AT2_27.html"
+}, {
+    treeNode: "n-06-05-04-02",
+    infoRef: "AT2_30.html"
+}, {
+    treeNode: "n-06-05-04-03",
+    infoRef: "AT2_32.html"
+}, {
+    treeNode: "n-06-05-04-04",
+    infoRef: "AT2_33.html"
+}, {
+    treeNode: "n-06-05-04-05",
+    infoRef: "AT2_38.html"
+}, {
+    treeNode: "n-06-05-04-06",
+    infoRef: "AT2_42.html"
+}, {
+    treeNode: "n-06-05-04-07",
+    infoRef: "AT2_39.html"
+}, {
+    treeNode: "n-06-05-04-08",
+    infoRef: "AT2_41.html"
+}, {
+    treeNode: "n-06-05-04-09",
+    infoRef: "AT2_42.html"
+}, {
+    treeNode: "n-03-05-06-01",
+    infoRef: "AT2_50.html"
+}, {
+    treeNode: "n-03-02-01-01",
+    infoRef: "E_1.html"
+}, {
+    treeNode: "n-06-02-Enhanced-Exposure-index",
+    infoRef: "sheet18.html",/*eeh-index.html"*/
+}, {
+    treeNode: "n-06-02-01-01",
+    infoRef: "E_1.html"
+}, {
+    treeNode: "n-03-02-01-02",
+    infoRef: "E_2.html"
+}, {
+    treeNode: "n-06-02-01-02",
+    infoRef: "E_2.html"
+}, {
+    treeNode: "n-06-02-02-01",
+    infoRef: "E_3.html"
+}, {
+    treeNode: "n-06-02-02-02",
+    infoRef: "E_4.html"
+}, {
+    treeNode: "n-06-02-02-03",
+    infoRef: "E_6.html"
+}, {
+    treeNode: "n-03-02-02-01",
+    infoRef: "E_9.html"
+}, {
+    treeNode: "n-03-02-02-02",
+    infoRef: "E_10.html"
+}, {
+    treeNode: "n-06-02-03-02",
+    infoRef: "E_11.html"
+}, {
+    treeNode: "n-03-01-01-03",
+    infoRef: "S1.html"
+}, {
+    treeNode: "n-06-01-01-03",
+    infoRef: "S1.html"
+}, {
+    treeNode: "n-03-01-01-01",
+    infoRef: "S3.html"
+}, {
+    treeNode: "n-06-01-01-01",
+    infoRef: "S3.html"
+}, {
+    treeNode: "n-03-01-02-01",
+    infoRef: "S4.html"
+}, {
+    treeNode: "n-06-01-02-01",
+    infoRef: "S4.html"
+}, {
+    treeNode: "n-03-01-02-02",
+    infoRef: "S7.html"
+}, {
+    treeNode: "n-06-01-02-02",
+    infoRef: "S7.html"
+}, {
+    treeNode: "n-07-01-01",
+    infoRef: "FuelPovertyLA.html"
+}, {
+    treeNode: "n-07-01-02",
+    infoRef: "FuelPovertyLA10.html"
+}, {
+    treeNode: "n-07-01-03",
+    infoRef: "FuelPovertyLSOA.html"
+}, {
+    treeNode: "n-07-01-04",
+    infoRef: "FuelPovertyLSOA10.html"
+}, {
+    treeNode: "n-07-02-01",
+    infoRef: "FuelPovertyLA_2014.html"
+}, {
+    treeNode: "n-07-02-02",
+    infoRef: "FuelPovertyLSOA_2014.html"
+}, {
+    treeNode: "n-3a",
+    infoRef: "EA_maps.html"
+}, {
+    treeNode: "n-3b",
+    infoRef: "SEPA_maps.html"
+}, {
+    treeNode: "n-3c",
+    infoRef: "NRW_maps.html"
+}, {
+    treeNode: "n-13-06",
+    infoRef: "datazone.html"
+}];

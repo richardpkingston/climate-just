@@ -1,5 +1,5 @@
 /** Climate Just, University of Manchester
- Last updated: 27/09/2021
+ Last updated: 17/08/2022
  By: Richard Kingston
  **/
 /* Flood maps */
@@ -36,18 +36,18 @@ var floodMaps = [{
         label: ' Health',
         children: [{
             label: ' Vulnerability due to health',
-            radioGroup: 'single',
-            layer: ill_health
+            layer: ill_health,
+            radioGroup: 'single'
         }, {
             label: ' Disability / people in ill-health (% people whose day-to-day activities are limited) <a href="javascript:void(0);"' +
                 ' data-href="info17/healthH1.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
-            radioGroup: 'single',
-            layer: ill_d2d
+            layer: dis_illHealth,
+            radioGroup: 'single'
         }, {
             label: ' % households with at least one person with long term limiting illness <a href="javascript:void(0);"' +
                 ' data-href="info17/healthH2.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
-            radioGroup: 'single',
-            layer: llti
+            layer: llti,
+            radioGroup: 'single'
         }]
     }]
 }, {
@@ -484,7 +484,7 @@ var agencyMaps = [{
 
 var heatMaps = [{
     label: ' Heat disadvantage (2011) <a href="javascript:void(0);" data-href="info17/sheet7.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
-    //collapsed: true,
+    collapsed: true,
     children: [{
         label: ' Population weighted vulnerability',
         collapsed: true,
@@ -740,7 +740,7 @@ var heatMaps = [{
                 }]
             }]
         }, {
-            label: ' Average vulnerability  and change in mean summer maximum temperature baseline to 2050s',
+            label: ' Average vulnerability and change in mean summer maximum temperature baseline to 2050s',
             collapsed: true,
             children: [{
                 label: ' Medium emissions scenario',
@@ -889,46 +889,54 @@ var heatMaps = [{
         }]
     }]
 }, {
-    label: ' Heat exposure (2011) <a href="javascript:void(0);" data-href="info17/sheet10.html" class="openPopup"><i class="fas fa-info-circle"></i></a><br>' +
-        ' &nbsp; &nbsp; &nbsp; &nbsp; (map layers to follow)',
+    label: ' Heat exposure (2011) <a href="javascript:void(0);" data-href="info17/sheet10.html" class="openPopup"><i class="fas fa-info-circle"></i></a><br>',
     collapsed: true,
-    /*children: [{
-        label: "Mean summer maximum temperature 2050s ",
+    children: [{
+        label: "Mean summer maximum temperature 2050s",
         children: [{
             label: "Medium emissions scenario",
             children: [{
-                id: "n-05-01-01-01",
-                label: "Low estimate (10th percentile)"
+                layer: AbsM10Day,
+                label: ' Low estimate (10th percentile)',
+                radioGroup: 'single'
             }, {
-                id: "n-05-01-01-02",
-                label: "Central estimate (50th percentile) "
+                layer: AbsM50Day,
+                label: ' Central estimate (50th percentile)',
+                radioGroup: 'single'
             }, {
-                id: "n-05-01-01-03",
-                label: "High estimate (90th percentile)"
+                layer: AbsM90Day,
+                label: ' High estimate (90th percentile)',
+                radioGroup: 'single'
             }]
         }, {
             label: "Low emissions scenario",
             children: [{
-                id: "n-05-01-02-01",
-                label: "Low estimate (10th percentile)"
+                layer: AbsL10Day,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-01-02-02",
-                label: "Central estimate (50th percentile)"
+                layer: AbsL50Day,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-01-02-03",
-                label: "High estimate (90th percentile)"
+                layer: AbsL90Day,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "High emissions scenario",
             children: [{
-                id: "n-05-01-03-01",
-                label: "Low estimate (10th percentile)"
+                layer: AbsH10Day,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-01-03-02",
-                label: "Central estimate (50th percentile)"
+                layer: AbsH50Day,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-01-03-03",
-                label: "High estimate (90th percentile)"
+                layer: AbsH90Day,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }]
     }, {
@@ -936,38 +944,47 @@ var heatMaps = [{
         children: [{
             label: "Medium emissions scenario",
             children: [{
-                id: "n-05-02-01-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChM10Day,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-02-01-02",
-                label: "Central estimate (50th percentile) "
+                layer: ChM50Day,
+                label: "Central estimate (50th percentile) ",
+                radioGroup: 'single'
             }, {
-                id: "n-05-02-01-03",
-                label: "High estimate (90th percentile)"
+                layer: ChM90Day,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "Low emissions scenario",
             children: [{
-                id: "n-05-02-02-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChL10Day,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-02-02-02",
-                label: "Central estimate (50th percentile)"
+                layer: ChL50Day,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-02-02-03",
-                label: "High estimate (90th percentile)"
+                layer: ChL90Day,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "High emissions scenario",
             children: [{
-                id: "n-05-02-03-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChH10Day,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-02-03-02",
-                label: "Central estimate (50th percentile)"
+                layer: ChH50Day,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-02-03-03",
-                label: "High estimate (90th percentile)"
+                layer: ChH90Day,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }]
     }, {
@@ -975,38 +992,47 @@ var heatMaps = [{
         children: [{
             label: "Medium emissions scenario",
             children: [{
-                id: "n-05-03-01-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChM10WD,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-03-01-02",
-                label: "Central estimate (50th percentile) "
+                layer: ChM50WD,
+                label: "Central estimate (50th percentile) ",
+                radioGroup: 'single'
             }, {
-                id: "n-05-03-01-03",
-                label: "High estimate (90th percentile)"
+                layer: ChM90WD,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "Low  emissions scenario",
             children: [{
-                id: "n-05-03-02-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChL10WD,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-03-02-02",
-                label: "Central estimate (50th percentile)"
+                layer: ChL50WD,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-03-02-03",
-                label: "High estimate (90th percentile)"
+                layer: ChL90WD,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "High emissions scenario",
             children: [{
-                id: "n-05-03-03-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChH10WD,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-03-03-02",
-                label: "Central estimate (50th percentile)"
+                layer: ChH50WD,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-03-03-03",
-                label: "High estimate (90th percentile)"
+                layer: ChH90WD,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }]
     }, {
@@ -1014,320 +1040,388 @@ var heatMaps = [{
         children: [{
             label: "Medium emissions scenario",
             children: [{
-                id: "n-05-04-01-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChM10WN,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-04-01-02",
-                label: "Central estimate (50th percentile) "
+                layer: ChM50WN,
+                label: "Central estimate (50th percentile) ",
+                radioGroup: 'single'
             }, {
-                id: "n-05-04-01-03",
-                label: "High estimate (90th percentile)"
+                layer: ChM90WN,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "Low emissions scenario",
             children: [{
-                id: "n-05-04-02-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChL10WN,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-04-02-02",
-                label: "Central estimate (50th percentile)"
+                layer: ChL50WN,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-04-02-03",
-                label: "High estimate (90th percentile)"
+                layer: ChL90WN,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }, {
             label: "High emissions scenario",
             children: [{
-                id: "n-05-04-03-01",
-                label: "Low estimate (10th percentile)"
+                layer: ChH10WN,
+                label: "Low estimate (10th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-04-03-02",
-                label: "Central estimate (50th percentile)"
+                layer: ChH50WN,
+                label: "Central estimate (50th percentile)",
+                radioGroup: 'single'
             }, {
-                id: "n-05-04-03-03",
-                label: "High estimate (90th percentile)"
+                layer: ChH90WN,
+                label: "High estimate (90th percentile)",
+                radioGroup: 'single'
             }]
         }]
-    }]*/
+    }]
 }, {
     label: ' Heat socio-spatial vulnerability (2011) <a href="javascript:void(0);" data-href="info17/sheet15.html" class="openPopup"><i class="fas' +
-        ' fa-info-circle"></i></a><br>' +
-        ' &nbsp; &nbsp; &nbsp; &nbsp; (map layers to follow)',
-    collapsed: false,
+        ' fa-info-circle"></i></a><br>',
+    collapsed: true,
     children: [{
         layer: ZH_VULN_IN,
         label: ' Social Heat Vulnerability Index <a href="javascript:void(0);" data-href="info17/sheet15.html" class="openPopup"><i class="fas' +
-            ' fa-info-circle"></i></a>'
+            ' fa-info-circle"></i></a>',
+        radioGroup: 'single'
     }, {
         label: ' Sensitivity <a href="javascript:void(0);" data-href="info17/sheet16.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
+        collapsed: true,
         children: [{
             layer: SENS_IND,
-            label: ' Sensitivity index'
-        }/*, {
+            label: ' Sensitivity index',
+            radioGroup: 'single'
+        }, {
             label: ' Age',
             children: [{
-                layer: under5,
-                label: ' Young children (% people under 5 years)'
+                layer: under5Heat,
+                label: ' Young children (% people under 5 years)',
+                radioGroup: 'single'
             }, {
-                layer: over75,
-                label: ' Older people (% people over 75 years)'
+                layer: over75Heat,
+                label: ' Older people (% people over 75 years)',
+                radioGroup: 'single'
             }]
         }, {
             label: ' Health',
             children: [{
-                layer: ill_d2d,
-                label: ' People in ill-health (% people whose day-to-day activities are limited)'
+                layer: ill_d2dHeat,
+                label: ' People in ill-health (% people whose day-to-day activities are limited)',
+                radioGroup: 'single'
             }, {
-                layer: llti,
-                label: ' Households containing at least one person in ill-health (%)'
+                layer: lltiHeat,
+                label: ' Households containing at least one person in ill-health (%)',
+                radioGroup: 'single'
             }]
         }]
-    }/*, {
-        layer: n_06_02,
+    }, {
         label: ' Enhanced Exposure',
+        collapsed: true,
         children: [{
-            layer: n_06_02-Enhanced-Exposure-index,
-            label: ' Enhanced exposure to heat index'
-        }, {
-            layer: n_06_02_01,
-            label: ' Physical Environment',
-            children: [{
-                layer: n_06_02_01_01,
-                label: ' Built up area (% not greenspace)'
-            }, {
-                layer: n_06_02_01_02,
-                label: ' Lack of domestic gardens (area of building/domestic gardens)'
-            }]
-        }, {
-            layer: n_06_02_02,
-            label: ' Physical Geography',
-            children: [{
-                layer: n_06_02_02_01,
-                label: ' Built up area (% area not blue space)'
-            }, {
-                layer: n_06_02_02_02,
-                label: ' Distance to coast'
-            }, {
-                layer: n_06_02_02_03,
-                label: ' Elevation'
-            }]
-        }, {
-            layer: n_06_02_03,
-            label: ' Housing Characteristics',
-            children: [{
-                layer: n_06_02_03_02,
-                label: ' High rise homes (% households with lowest floor 5th floor or above)'
-            }]
+            layer: exposureHeat,
+            label: ' Enhanced exposure to heat index',
+            radioGroup: 'single'
         }]
     }, {
-        layer: n_06_03,
-        label: ' Ability to Prepare',
+        label: ' Physical Environment',
+        collapsed: true,
         children: [{
-            layer: n_06_03-Ability-to-Prepare-index,
-            label: ' Inability to Prepare index'
+            layer: builtup,
+            label: ' Built up area (% not greenspace)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_03_01,
-            label: ' Income',
-            children: [{
-                layer: n_06_03_01_01,
-                label: ' Unemployment (% working population unemployed)'
-            }, {
-                layer: n_06_03_01_02,
-                label: ' Low income occupations (% in routine or semi-routine occupations)'
-            }, {
-                layer: n_06_03_01_03,
-                label: ' Long-term unemployed (% who are LTU or who have never worked)'
-            }, {
-                layer: n_06_03_01_04,
-                label: ' Households with dependent children and no adults in employment (%)'
-            }, {
-                layer: n_06_03_01_05,
-                label: ' Weekly household income estimate (&pound;)'
-            }, {
-                layer: n_06_03_01_06,
-                label: ' All pensioner households (%)'
-            }]
-        }, {
-            layer: n_06_03_02,
-            label: ' Tenure',
-            children: [{
-                layer: n_06_03_02_01,
-                label: ' Social renters (% Households renting from social or Council landlords)'
-            }, {
-                layer: n_06_03_02_02,
-                label: ' Private renters (% Households)'
-            }]
-        }, {
-            layer: n_06_03_03,
-            label: ' Information Use (Language)',
-            children: [{
-                layer: n_06_03_03_01,
-                label: ' Born outside UK/Ireland (%)'
-            }, {
-                layer: n_06_03_03_02,
-                label: ' Recent arrivals to UK (% arrived in UK less than a year ago)'
-            }]
+            layer: nogarden,
+            label: ' Lack of domestic gardens (area of building/domestic gardens)',
+            radioGroup: 'single'
         }]
     }, {
-        layer: n_06_04,
-        label: ' Ability to Respond',
+        label: ' Physical Geography',
+        collapsed: true,
         children: [{
-            layer: n_06_04-Ability-to-Respond-index,
-            label: ' Inability to Respond index'
+            layer: notBlue,
+            label: ' Built up area (% area not blue space)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_04_01,
-            label: ' Income',
-            children: [{
-                layer: n_06_04_01_01,
-                label: ' Unemployment (% working population unemployed)'
-            }, {
-                layer: n_06_04_01_02,
-                label: ' Low income occupations (% in routine or semi-routine occupations)'
-            }, {
-                layer: n_06_04_01_03,
-                label: ' Long-term unemployed (% who are LTU or who have never worked)'
-            }, {
-                layer: n_06_04_01_04,
-                label: ' Households with dependent children and no adults in employment (%)'
-            }, {
-                layer: n_06_04_01_05,
-                label: ' Weekly household income estimate (&pound;)'
-            }, {
-                layer: n_06_04_01_06,
-                label: ' All pensioner households (%)'
-            }]
+            layer: coast,
+            label: ' Distance to coast (km)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_04_02,
-            label: ' Information Use (Language)',
-            children: [{
-                layer: n_06_04_02_01,
-                label: ' Born outside UK/Ireland (%)'
-            }, {
-                layer: n_06_04_02_02,
-                label: ' Recent arrivals to UK (% arrived in UK less than a year ago)'
-            }]
-        }, {
-            layer: n_06_04_03,
-            label: ' Social Networks',
-            children: [{
-                layer: n_06_04_03_01,
-                label: ' Single pensioner households (%)'
-            }, {
-                layer: n_06_04_03_02,
-                label: ' Lone parents with dependent children (% households)'
-            }, {
-                layer: n_06_04_03_03,
-                label: ' Lack of carers (% people not providing unpaid care)'
-            }]
-        }, {
-            layer: n_06_04_04,
-            label: ' Mobility',
-            children: [{
-                layer: ill_d2d,
-                label: ' Disability (% people whose day-to-day activities are limited a lot)'
-            }, {
-                layer: n_06_04_04_02,
-                label: ' Lack of private transport (% households with no car or van)'
-            }]
-        }, {
-            layer: n_06_04_05,
-            label: ' Crime',
-            children: [{
-                layer: n_06_04_05_01,
-                label: ' Index of Multiple Deprivation crime score',
-                icon: ' assets/img/map16_pink.png'
-            }]
-        }, {
-            layer: n_06_04_06,
-            label: ' General Accessibility',
-            children: [{
-                layer: n_06_04_06_01,
-                label: ' Low road density (% area not road)'
-            }]
-        }, {
-            layer: n_06_04_07,
-            label: ' General infrastructure',
-            children: [{
-                layer: n_06_04_07_01,
-                label: ' Density of retail units'
-            }, {
-                layer: n_06_04_07_02,
-                label: ' % change in the number of enterprises'
-            }]
+            layer: elevation,
+            label: ' Elevation (m)',
+            radioGroup: 'single'
         }]
     }, {
-        layer: n_06_05,
-        label: ' Ability to Recover',
+        label: ' Housing Characteristics',
+        collapsed: true,
         children: [{
-            layer: n_06_05-Ability-to-Recover-index,
-            label: ' Inability to Recover index'
+            layer: highRise,
+            label: ' High rise homes (% households with lowest floor 5th floor or above)',
+            radioGroup: 'single'
+        }]
+    }]
+}, {
+    label: ' Ability to Prepare',
+    collapsed: true,
+    children: [{
+        layer: AbilityToPrepareIndex,
+        label: ' Inability to Prepare index',
+        radioGroup: 'single'
+    }, {
+        label: ' Income',
+        collapsed: true,
+        children: [{
+            layer: unemployedHeat,
+            label: ' Unemployment (% working population unemployed)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_05_01,
-            label: ' Information Use (Language)',
-            children: [{
-                layer: n_06_05_01_01,
-                label: ' Born outside UK/Ireland (%)'
-            }, {
-                layer: n_06_05_01_02,
-                label: ' Recent arrivals to UK (% arrived in UK less than a year ago)'
-            }]
+            layer: lowIncomeOcc,
+            label: ' Low income occupations (% in routine or semi-routine occupations)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_05_02,
-            label: ' Social Networks',
-            children: [{
-                layer: n_06_05_02_01,
-                label: ' Single pensioner households (%)'
-            }, {
-                layer: n_06_05_02_02,
-                label: ' Lone parents with dependent children (% households)'
-            }, {
-                layer: n_06_05_02_03,
-                label: ' Lack of carers (% people not providing unpaid care)'
-            }]
+            layer: LTunemployment,
+            label: ' Long-term unemployed (% who are LTU or who have never worked)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_05_03,
-            label: ' Mobility',
-            children: [{
-                layer: ill_d2d,
-                label: ' Disability (% people whose day-to-day activities are limited a lot)'
-            }, {
-                layer: n_06_05_03_02,
-                label: ' Lack of private transport (% households with no car or van)'
-            }, {
-                layer: n_06_05_03_03,
-                label: ' Working away from home (% not working at home)'
-            }]
+            layer: depChildUnempHeat,
+            label: ' Households with dependent children and no adults in employment (%)',
+            radioGroup: 'single'
         }, {
-            layer: n_06_05_04,
-            label: ' Service Areas',
-            children: [{
-                layer: n_06_05_04_01,
-                label: ' Travel time to nearest GP by walk/public transport'
-            }, {
-                layer: n_06_05_04_02,
-                label: ' % of at risk population (no car) outside of 15 minutes by walk/public transport to nearest GP'
-            }, {
-                layer: n_06_05_04_03,
-                label: ' Number of GPs within 15 minutes by walk/public transport'
-            }, {
-                layer: n_06_05_04_04,
-                label: ' Number of GPs within 15 minutes by car'
-            }, {
-                layer: n_06_05_04_05,
-                label: ' Travel time to nearest hospital by walk/public transport'
-            }, {
-                layer: n_06_05_04_06,
-                label: ' Travel time to nearest hospital by car'
-            }, {
-                layer: n_06_05_04_07,
-                label: ' % of at risk population outside of 30 minutes by walk/PT to nearest hospital'
-            }, {
-                layer: n_06_05_04_08,
-                label: ' Number of hospitals within 30 minutes by walk/public transport'
-            }, {
-                layer: n_06_05_04_09,
-                label: ' Number of hospitals within 30 minutes by car'
-            }]
+            layer: income_weekly,
+            label: ' Weekly household income estimate (&pound;)',
+            radioGroup: 'single'
+        }, {
+            layer: pensionerHH,
+            label: ' All pensioner households (%)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Tenure',
+        collapsed: true,
+        children: [{
+            layer: socRent,
+            label: ' Social renters (% Households renting from social or Council landlords)',
+            radioGroup: 'single'
+        }, {
+            layer: priRent,
+            label: ' Private renters (% Households)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Information Use (Language)',
+        collapsed: true,
+        children: [{
+            layer: outsideUK,
+            label: ' Born outside UK/Ireland (%)',
+            radioGroup: 'single'
+        }, {
+            layer: arrivalsUKheat,
+            label: ' Recent arrivals to UK (% arrived in UK less than a year ago)',
+            radioGroup: 'single'
+        }]
+    }]
+}, {
+    label: ' Ability to Respond',
+    collapsed: true,
+    children: [{
+        layer: AbilityRespondIndexHeat,
+        label: ' Inability to Respond index',
+        radioGroup: 'single'
+    }, {
+        label: ' Income',
+        collapsed: true,
+        children: [{
+            layer: unemployedHeat,
+            label: ' Unemployment (% working population unemployed)',
+            radioGroup: 'single'
+        }, {
+            layer: lowIncomeOcc,
+            label: ' Low income occupations (% in routine or semi-routine occupations)',
+            radioGroup: 'single'
+        }, {
+            layer: LTunemployment,
+            label: ' Long-term unemployed (% who are LTU or who have never worked)',
+            radioGroup: 'single'
+        }, {
+            layer: depChildUnempHeat,
+            label: ' Households with dependent children and no adults in employment (%)',
+            radioGroup: 'single'
+        }, {
+            layer: income_weekly,
+            label: ' Weekly household income estimate (&pound;)',
+            radioGroup: 'single'
+        }, {
+            layer: pensionerHH,
+            label: ' All pensioner households (%)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Information Use (Language)',
+        collapsed: true,
+        children: [{
+            layer: outsideUK,
+            label: ' Born outside UK/Ireland (%)',
+            radioGroup: 'single'
+        }, {
+            layer: arrivalsUKheat,
+            label: ' Recent arrivals to UK (% arrived in UK less than a year ago)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Social Networks',
+        collapsed: true,
+        children: [{
+            layer: singlePen,
+            label: ' Single pensioner households (%)',
+            radioGroup: 'single'
+        }, {
+            layer: depChildUnempHeat,
+            label: ' Lone parents with dependent children (% households)',
+            radioGroup: 'single'
+        }, {
+            layer: noCarer,
+            label: ' Lack of carers (% people not providing unpaid care)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Mobility',
+        collapsed: true,
+        children: [{
+            layer: ill_d2dHeat,
+            label: ' Disability (% people whose day-to-day activities are limited a lot)',
+            radioGroup: 'single'
+        }, {
+            layer: noCar,
+            label: ' Lack of private transport (% households with no car or van)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Crime',
+        collapsed: true,
+        children: [{
+            layer: crimeIMDHeat,
+            label: ' Index of Multiple Deprivation crime score',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' General Accessibility',
+        collapsed: true,
+        children: [{
+            layer: roadDensity,
+            label: ' Low road density (% area not road)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' General infrastructure',
+        collapsed: true,
+        children: [{
+            layer: retailDensity,
+            label: ' Density of retail units',
+            radioGroup: 'single'
+        }, {
+            layer: enterprises,
+            label: ' % change in the number of enterprises',
+            radioGroup: 'single'
+        }]
+    }]
+}, {
+    label: ' Ability to Recover',
+    collapsed: true,
+    children: [{
+        layer: ZF_REC_IND,
+        label: ' Inability to Recover index',
+        radioGroup: 'single'
+    }, {
+        label: ' Information Use (Language)',
+        collapsed: true,
+        children: [{
+            layer: outsideUK,
+            label: ' Born outside UK/Ireland (%)',
+            radioGroup: 'single'
+        }, {
+            layer: arrivalsUKheat,
+            label: ' Recent arrivals to UK (% arrived in UK less than a year ago)',
+            radioGroup: 'single'
+        }]
+    }, {
+        label: ' Social Networks',
+        collasped: true,
+        children: [{
+            layer: singlePen,
+            label: ' Single pensioner households (%)',
+            radioGroup: 'single'
+        }/*, {
+            layer: n_06_05_02_02,
+            label: ' Lone parents with dependent children (% households)',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_02_03,
+            label: ' Lack of carers (% people not providing unpaid care)',
+            radioGroup: 'single'
+        }]
+    }, {
+        layer: n_06_05_03,
+        label: ' Mobility',
+        children: [{
+            layer: ill_d2d,
+            label: ' Disability (% people whose day-to-day activities are limited a lot)',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_03_02,
+            label: ' Lack of private transport (% households with no car or van)',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_03_03,
+            label: ' Working away from home (% not working at home)',
+            radioGroup: 'single'
+        }]
+    }, {
+        layer: n_06_05_04,
+        label: ' Service Areas',
+        children: [{
+            layer: n_06_05_04_01,
+            label: ' Travel time to nearest GP by walk/public transport',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_02,
+            label: ' % of at risk population (no car) outside of 15 minutes by walk/public transport to nearest GP',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_03,
+            label: ' Number of GPs within 15 minutes by walk/public transport',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_04,
+            label: ' Number of GPs within 15 minutes by car',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_05,
+            label: ' Travel time to nearest hospital by walk/public transport',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_06,
+            label: ' Travel time to nearest hospital by car',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_07,
+            label: ' % of at risk population outside of 30 minutes by walk/PT to nearest hospital',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_08,
+            label: ' Number of hospitals within 30 minutes by walk/public transport',
+            radioGroup: 'single'
+        }, {
+            layer: n_06_05_04_09,
+            label: ' Number of hospitals within 30 minutes by car',
+            radioGroup: 'single'
         }*/]
     }]
 }];

@@ -1,14 +1,13 @@
 /** Climate Just, University of Manchester
- Last updated: 27/08/2021
+ Last updated: 17/08/2022
  By: Richard Kingston
  **/
 /*
 wms legends from GeoServer
 */
-//var nhs_legend = 'https://nhs.tellus-toolkit.com/geoserver/nhs/wms?';
 //var ukcp18_legend = 'https://nhs.tellus-toolkit.com/geoserver/ukcp18/wms?';
 var cj18_legend = 'https://maps.tellus-toolkit.com/geoserver/cj18/wms?';
-var EA_legend = 'https://maps.tellus-toolkit.com/geoserver/EA/wms?';
+var EA_legend = 'https://environment.data.gov.uk/spatialdata/';
 var admin_legend = 'https://maps.tellus-toolkit.com/geoserver/admin/wms?';
 
 var legend = L.control.htmllegend({
@@ -51,10 +50,10 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=ill-health>'
         }]
     }, {
-        name: 'Disability / people in ill- health (% people whose day-to-day activities are limited',
-        layer: ill_d2d,
+        name: 'Disability (% people whose day-to-day activities are limited a lot)',
+        layer: ill_d2dHeat,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=ill-d2d>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=ill-d2d&STYLE=ill-d2d>'
         }]
     }, {
         name: '% households with at least one person with long term limiting illness',
@@ -262,9 +261,9 @@ var legend = L.control.htmllegend({
         }]
     }, {
         name: '% single-pensioner households',
-        layer: pensioner,
+        layer: singlePen,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=pensioner>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=singlePen&STYLE=singlePen>'
         }]
     }, {
         name: '% lone-parent households with dependent children',
@@ -355,611 +354,987 @@ var legend = L.control.htmllegend({
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> Medium emissions scenario =>  Low estimate (10th percentile)',
         layer: RWHZZ_CV7,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV7>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> Medium emissions scenario =>  Central estimate (50th percentile)',
         layer: RWHZZ_CV8,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV8>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> Medium emissions scenario =>  High estimate (90th percentile)',
         layer: RWHZZ_CV9,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV9>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> Low emissions scenario =>  Low estimate (10th percentile)',
         layer: RWHZZ_CV4,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV4>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> Low emissions scenario =>  Central estimate (50th percentile)',
         layer: RWHZZ_CV5,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV5>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> Low emissions scenario =>  High estimate (90th percentile)',
         layer: RWHZZ_CV6,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV6>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> High emissions scenario =>  Low estimate (10th percentile)',
         layer: RWHZZ_CV1,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV1>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> High emissions scenario =>  Central estimate (50th percentile)',
         layer: RWHZZ_CV2,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV2>'
         }]
     }, {
         name: 'Population weighted vulnerability and mean summer maximum temperature 2050s -> High emissions scenario =>  High estimate (50th percentile)',
         layer: RWHZZ_CV3,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV3>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> Medium emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV16,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV16>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> Medium emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV17,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV17>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> Medium emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV18,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV18>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV13,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV13>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV14,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV14>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV15,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV15>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> High emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV10,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV10>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> High emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV11,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV11>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in mean summer maximum temperature baseline to 2050s -> High emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV12,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV12>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV25,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV25>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV26,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV26>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario =>  High' +
             ' estimate (90th percentile)',
-        layer: RWHZZ_CV22,
+        layer: RWHZZ_CV27,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV27>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV22,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV22>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: ZRWHZZ_CV2,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_ZRWHZZ_CV2>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV24,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV24>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> High emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV19,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV19>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> High emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV20,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV20>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest day baseline to 2050s -> High emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV21,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV21>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV34,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV34>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV35,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV35>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV36,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV36>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> Low emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV31,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV31>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> Low emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV32,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV32>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> Low emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV33,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV33>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> High emissions scenario =>  Low' +
             ' estimate (10th percentile)',
         layer: RWHZZ_CV28,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV28>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> High emissions scenario =>  Central' +
             ' estimate (50th percentile)',
         layer: RWHZZ_CV29,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV29>'
         }]
     }, {
         name: 'Population weighted vulnerability and change in the temperature of the warmest night baseline to 2050s -> High emissions scenario =>  High' +
             ' estimate (90th percentile)',
         layer: RWHZZ_CV30,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_RWHZZ_CV30>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> Medium emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV7,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV7>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> Medium emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV8,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_2101201&style=heat_R_HZZ_CV8>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> Medium emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV9,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV9>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> Low emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV4,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV4>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> Low emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV5,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV5>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> Low emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV6,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV6>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> High emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV1,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV1>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> High emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV2,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV2>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature 2050s -> High emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV3,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV3>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> Medium emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV16,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV16>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> Medium emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV17,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV17>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> Medium emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV18,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV18>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> Low emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV13,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV13>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> Low emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV14,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV14>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> Low emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV15,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV15>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> High emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV10,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV10>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> High emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV11,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV11>'
         }]
     }, {
         name: 'Average vulnerability and mean summer maximum temperature baseline to 2050s -> High emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV12,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV12>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario =>  Low estimate' +
             ' (10th percentile)',
         layer: R_HZZ_CV25,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV25>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV26,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV26>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV27,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV27>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario =>  Low estimate' +
             ' (10th percentile)',
         layer: R_HZZ_CV22,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV22>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV23,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV23>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV24,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV24>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> High emissions scenario =>  Low estimate' +
             ' (10th percentile)',
         layer: R_HZZ_CV19,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV19>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> High emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV20,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV20>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest day baseline to 2050s -> High emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV21,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV21>'
         }]
     }, {
-        name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  Low estimate' +
-            ' (10th percentile)',
+        name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  Low estimate (10th percentile)',
         layer: R_HZZ_CV34,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV34>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV35,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV35>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Medium emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV36,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV36>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Low emissions scenario =>  Low estimate' +
             ' (10th percentile)',
         layer: R_HZZ_CV31,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV31>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Low emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV32,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV32>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> Low emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV33,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV33>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> High emissions scenario =>  Low estimate' +
             ' (10th percentile)',
         layer: R_HZZ_CV28,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV28>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> High emissions scenario =>  Central estimate (50th percentile)',
         layer: R_HZZ_CV29,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV29>'
         }]
     }, {
         name: 'Average vulnerability and change in the temperature of the warmest night baseline to 2050s -> High emissions scenario =>  High estimate (90th percentile)',
         layer: R_HZZ_CV30,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=heat_disadvantage_2011_21012014&style=heat_R_HZZ_CV30>'
         }]
     }, {
-        //Heat socio-spatial maps
-        name: 'Social Heat Vulnerability Index',
-        layer: ZH_VULN_IN,
+        // Heat exposure 2011 All_2011_heat_data_zscores
+        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  Low estimate (10th percentile)',
+        layer: AbsM10Day,
         elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014>'
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsM10Day>'
         }]
     }, {
+        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  Central estimate (50th percentile)',
+        layer: AbsM50Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsM50Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  High estimate (90th percentile)',
+        layer: AbsM90Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsM90Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  Low estimate (10th percentile)',
+        layer: AbsL10Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsL10Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  Central estimate (50th percentile)',
+        layer: AbsL50Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsL50Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  High estimate (90th percentile)',
+        layer: AbsL90Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsL90Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  Low estimate (10th percentile)',
+        layer: AbsH10Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsH10Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  Central estimate (50th percentile)',
+        layer: AbsH50Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsH50Day>'
+        }]
+    }, {
+        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  High estimate (90th percentile)',
+        layer: AbsH90Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsH90Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Medium emissions scenario -> Low estimate (10th percentile)',
+        layer: ChM10Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM10Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Medium emissions scenario -> Central estimate (50th percentile)',
+        layer: ChM50Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM50Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Medium emissions scenario -> High estimate (90th percentile)',
+        layer: ChM90Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM90Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)',
+        layer: ChL10Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL10Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario -> Central estimate (50th percentile)',
+        layer: ChL50Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL50Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario -> High estimate (90th percentile)',
+        layer: ChL90Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL90Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> High emissions scenario -> Low estimate (10th percentile)',
+        layer: ChH10Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH10Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> High emissions scenario -> Cental estimate (50th percentile)',
+        layer: ChH50Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH50Day>'
+        }]
+    }, {
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> high emissions scenario -> High estimate (90th percentile)',
+        layer: ChH90Day,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH90Day>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario -> Low estimate (10th percentile)',
+        layer: ChM10WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM10WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario -> Cental estimate (50th percentile)',
+        layer: ChM50WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM50WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> Medium emissions scenario -> High estimate (90th percentile)',
+        layer: ChM90WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM90WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)',
+        layer: ChL10WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL10WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario -> Cental estimate (50th percentile)',
+        layer: ChL50WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL50WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> Low emissions scenario -> High estimate (90th percentile)',
+        layer: ChL90WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL90WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> High emissions scenario -> Low estimate (10th percentile)',
+        layer: ChH10WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH10WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> High emissions scenario -> Cental estimate (50th percentile)',
+        layer: ChH50WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH50WD>'
+        }]
+    }, {
+        name: 'Change in the temperature of the warmest day baseline to 2050s -> High emissions scenario -> High estimate (90th percentile)',
+        layer: ChH90WD,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH90WD>'
+        }]
+    }, {
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Medium emissions scenario -> Low estimate (10th percentile)',
+        layer: ChM10WN,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM10WN>'
+        }]
+    }, {
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Medium emissions scenario -> Cental estimate (50th percentile)',
+        layer: ChM50WN,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM50WN>'
+        }]
+    }, {
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Medium emissions scenario -> High estimate (90th percentile)',
+        layer: ChM90WN,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM90WN>'
+        }]
+    }, {
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)',
+        layer: ChL10WN,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL10WN>'
+        }]
+    }, {
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Low emissions scenario -> Cental estimate (50th percentile)',
+        layer: ChL50WN,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL50WN>'
+        }]
+    }, {
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Low emissions scenario -> High estimate (90th percentile)',
+        layer: ChL90WN,
+        elements: [{
+            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL90WN>'
+        }]
+    },
 
-        name: 'Sensitivity Index',
-        layer: SENS_IND,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014>'
-        }]
-    }, {
-        // fuel poverty maps
-        name: '% LA fuel poverty 2012',
-        layer: LA_FP_2012,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LA_FP_2012>'
-        }]
-    }, {
-        name: '% LA fuel poverty 2012 - 10% definition',
-        layer: LA_FP_2012_10pc,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LA_FP_2012_10pc>'
-        }]
-    }, {
-        name: '% LSOA fuel poverty 2012',
-        layer: LSOA_FP_2012,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LSOA_2012>'
-        }]
-    }, {
-        name: '% LSOA fuel poverty 2012 - 10% definition',
-        layer: LSOA_FP_2012_10pc,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LSOA_2012_10pc>'
-        }]
-    }, {
-        name: '% LA fuel poverty 2014',
-        layer: LA_FP_2014,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LA_FP_2014>'
-        }]
-    }, {
-        name: '% LSOA fuel poverty 2014',
-        layer: LSOA_FP_2014,
-        elements: [{
-            html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LSOA_FP_2014>'
-        }]
-    }, {
-        // EA maps
-        name: 'EA Flood Alert Areas',
-        layer: flood_alert,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Alert_Areas>'
-        }]
-    }, {
-        name: 'EA Flood Risk Areas',
-        layer: flood_risk,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Risk_Areas>'
-        }]
-    }, {
-        name: 'EA Areas Benefiting from Defences',
-        layer: flood_benefit,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Areas_Benefiting_from_Flood_Defences>'
-        }]
-    }, {
-        name: 'EA Flood Zone 2',
-        layer: flood_zone2,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_2>'
-        }]
-    }, {
-        name: 'EA Flood Zone 3',
-        layer: flood_zone3,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_3>'
-        }]
-    }, {
-        name: 'EA Recorded Flood Outlines',
-        layer: recordedFlood,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Recorded_Flood_Outlines>'
-        }]
-    }, {
-        name: 'EA Risk of Flooding from Rivers and Sea',
-        layer: Risk_of_Flooding_from_Rivers_and_Sea,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Risk_of_Flooding_from_Rivers_and_Sea>'
-        }]
-    }, {
-        name: 'EA Saltmarsh extents',
-        layer: saltmarsh,
-        elements: [{
-            html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Saltmarsh_Extents_and_Zonation>'
-        }]
-    }, {
-        // Wales
-        name: 'NRW Flood Defences',
-        layer: NRW_FLOODMAP_FLOOD_DEFENCES,
-        elements: [{
-            html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_FLOODMAP_FLOOD_DEFENCES>'
-        }]
-    }, {
-        name: 'NRW Areas Benefiting from Flood Defences',
-        layer: NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE,
-        elements: [{
-            html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE>'
-        }]
-    }, {
-        name: 'UK Wards',
-        layer: wards,
-        elements: [{
-            html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=wards_2021>'
-        }]
-    }, {
-        name: 'UK LAs',
-        layer: UK_districts,
-        elements: [{
-            html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LAD_2019_UK_BGC>'
-        }]
-    }, {
-        name: 'Urban areas - England & Wales',
-        layer: urban,
-        elements: [{
-            html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Built-up_Areas_(December_2011)_Boundaries_V2>'
-        }]
-    }, {
-        name: 'Urban areas - Scotland',
-        layer: scot_urban,
-        elements: [{
-            html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Settlements2016_MHW>'
-        }]
-    }, {
-        name: 'Parliamentary constituencies',
-        layer: westminster,
-        elements: [{
-            html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=westminster>'
-        }]
-    } /*, { // SEPA 2080 flood maps
+        {
+            name: 'Change in temperature of the warmest night baseline to 2050s -> High emissions scenario -> Low estimate (10th percentile)',
+            layer: ChH10WN,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH10WN>'
+            }]
+        }, {
+            name: 'Change in temperature of the warmest night baseline to 2050s -> High emissions scenario -> Cental estimate (50th percentile)',
+            layer: ChH50WN,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH50WN>'
+            }]
+        }, {
+            name: 'Change in temperature of the warmest night baseline to 2050s -> High emissions scenario -> High estimate (90th percentile)',
+            layer: ChH90WN,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChH90WN>'
+            }]
+        }, {
+            //Heat socio-spatial maps
+            name: 'Social Heat Vulnerability Index',
+            layer: ZH_VULN_IN,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=SSVI-flood-heat>'
+            }]
+        }, {
+            name: 'Sensitivity Index',
+            layer: SENS_IND,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=SENS_IND>'
+            }]
+        }, {
+            name: 'Enhanced exposure to heat index',
+            layer: exposureHeat,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=ZH_EXP_IND>'
+            }]
+        }, {
+            name: 'Built up area (% not greenspace)',
+            layer: builtup,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=built-up>'
+            }]
+        }, {
+            name: 'Lack of domestic gardens (area of building/domestic gardens)',
+            layer: nogarden,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=no-garden>'
+            }]
+        }, {
+            name: 'Built up area (% area not blue space)',
+            layer: notBlue,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=not-Blue>'
+            }]
+        }, {
+            name: 'Distance to coast (km)',
+            layer: coast,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=coast>'
+            }]
+        }, {
+            name: 'Elevation (m)',
+            layer: elevation,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=elevation>'
+            }]
+        }, {
+            name: 'High rise homes (% households with lowest floor 5th floor or above)',
+            layer: highRise,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=highRise>'
+            }]
+        }, {
+            name: 'Inability to Prepare index',
+            layer: AbilityToPrepareIndex,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=ZH_PREP_IN>'
+            }]
+        }, {
+            name: '% unemployed',
+            layer: unemployedHeat,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=unemployedHeat>'
+            }]
+        }, {
+            name: 'Low income occupations (% in routine or semi-routine occupations)',
+            layer: lowIncomeOcc,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=lowIncomeOcc>'
+            }]
+        }, {
+            name: 'Long-term unemployed (% who are LTU or who have never worked)',
+            layer: LTunemployment,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=LTunemp>'
+            }]
+        }, {
+            name: 'Households with dependent children and no adults in employment (%)',
+            layer: depChildUnempHeat,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=depChildUnemp>'
+            }]
+        }, {
+            name: 'Weekly household income estimate (&pound;)',
+            layer: income_weekly,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=income_weekly>'
+            }]
+        }, {
+            name: 'All pensioner households (%)',
+            layer: pensionerHH,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=pensionerHH>'
+            }]
+        }, {
+            name: 'Single pensioner households (%)',
+            layer: pensionerHeat,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=pensioner&style=pensioner>'
+            }]
+        }, {
+            name: 'Social renters (% Households renting from social or Council landlords)',
+            layer: socRent,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=socRent>'
+            }]
+        }, {
+            name: 'Private renters (% Households)',
+            layer: priRent,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=priRentt1>'
+            }]
+        }, {
+            name: 'Born outside UK/Ireland (%)',
+            layer: outsideUK,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=outsideUK>'
+            }]
+        }, {
+            name: 'Recent arrivals to UK (% arrived in UK less than a year ago)',
+            layer: arrivalsUKheat,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=arrivalsUKHeat>'
+            }]
+        }, {
+            name: 'Inability to Respond index',
+            layer: AbilityRespondIndexHeat,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=ZF_RESP_IN>'
+            }]
+        }, {
+            name: 'Lack of carers (% people not providing unpaid care)',
+            layer: noCarer,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=noCarer>'
+            }]
+        }, {
+            name: 'Lack of private transport (% households with no car or van)',
+            layer: noCar,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=noCar>'
+            }]
+        }, {
+            name: 'Low road density (% area not road)',
+            layer: roadDensity,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=roadDensity>'
+            }]
+        }, {
+            name: 'Density of retail units (Number of enterprises divided by the area of MSOA)',
+            layer: retailDensity,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=retailDensity>'
+            }]
+        }, {
+            name: '% change in the number of enterprises',
+            layer: enterprises,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=enterprises>'
+            }]
+        }, {
+            name: 'Inability to Recover index',
+            layer: ZF_REC_IND,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=ZF_REC_IND>'
+            }]
+        },
+
+
+        {
+            // fuel poverty maps
+            name: '% LA fuel poverty 2012',
+            layer: LA_FP_2012,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LA_FP_2012>'
+            }]
+        }, {
+            name: '% LA fuel poverty 2012 - 10% definition',
+            layer: LA_FP_2012_10pc,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LA_FP_2012_10pc>'
+            }]
+        }, {
+            name: '% LSOA fuel poverty 2012',
+            layer: LSOA_FP_2012,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LSOA_2012>'
+            }]
+        }, {
+            name: '% LSOA fuel poverty 2012 - 10% definition',
+            layer: LSOA_FP_2012_10pc,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LSOA_2012_10pc>'
+            }]
+        }, {
+            name: '% LA fuel poverty 2014',
+            layer: LA_FP_2014,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LA_FP_2014>'
+            }]
+        }, {
+            name: '% LSOA fuel poverty 2014',
+            layer: LSOA_FP_2014,
+            elements: [{
+                html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LSOA_FP_2014>'
+            }]
+        }, {
+            // EA maps
+            name: 'EA Flood Alert Areas',
+            layer: flood_alert,
+            elements: [{
+                html: '<img src=' + EA_legend + 'flood-alert-areas/wms?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=Flood_Alert_Areas&style=default>'
+            }]
+        }, {
+            name: 'EA Flood Risk Areas',
+            layer: flood_risk,
+            elements: [{
+                html: '<img src=' + EA_legend + 'flood-risk-areas/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;layer=Flood_Risk_Areas&amp;style=default>'
+            }]
+        }, {
+            name: 'EA Areas Benefiting from Defences',
+            layer: flood_benefit,
+            elements: [{
+                html: '<img src=' + EA_legend + 'flood-map-for-planning-rivers-and-sea-areas-benefiting-from-defences/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;layer=Flood_Map_for_Planning_Rivers_and_Sea_Areas_Benefiting_from_Flood_Defences&amp;style=default>'
+            }]
+        }, {
+            name: 'EA Flood Zone 2',
+            layer: flood_zone2,
+            elements: [{
+                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_2>'
+            }]
+        }, {
+            name: 'EA Flood Zone 3',
+            layer: flood_zone3,
+            elements: [{
+                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_3>'
+            }]
+        }, {
+            name: 'EA Recorded Flood Outlines',
+            layer: recordedFlood,
+            elements: [{
+                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Recorded_Flood_Outlines>'
+            }]
+        }, {
+            name: 'EA Risk of Flooding from Rivers and Sea',
+            layer: Risk_of_Flooding_from_Rivers_and_Sea,
+            elements: [{
+                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Risk_of_Flooding_from_Rivers_and_Sea>'
+            }]
+        }, {
+            name: 'EA Saltmarsh extents',
+            layer: saltmarsh,
+            elements: [{
+                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Saltmarsh_Extents_and_Zonation>'
+            }]
+        }, {
+            // Wales
+            name: 'NRW Flood Defences',
+            layer: NRW_FLOODMAP_FLOOD_DEFENCES,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_FLOODMAP_FLOOD_DEFENCES>'
+            }]
+        }, {
+            name: 'NRW Areas Benefiting from Flood Defences',
+            layer: NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE>'
+            }]
+        }, {
+            name: 'UK Wards',
+            layer: wards,
+            elements: [{
+                html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=wards_2021>'
+            }]
+        }, {
+            name: 'UK LAs',
+            layer: UK_districts,
+            elements: [{
+                html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LAD_2019_UK_BGC>'
+            }]
+        }, {
+            name: 'Urban areas - England & Wales',
+            layer: urban,
+            elements: [{
+                html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Built-up_Areas_(December_2011)_Boundaries_V2>'
+            }]
+        }, {
+            name: 'Urban areas - Scotland',
+            layer: scot_urban,
+            elements: [{
+                html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Settlements2016_MHW>'
+            }]
+        }, {
+            name: 'Parliamentary constituencies',
+            layer: westminster,
+            elements: [{
+                html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=westminster>'
+            }]
+        } /*, { // SEPA 2080 flood maps
                 name: 'River flooding<br>extent 2080',
                 layer: riverExt2080,
                 elements: [{

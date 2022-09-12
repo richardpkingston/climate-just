@@ -1,5 +1,5 @@
 /** Climate Just, University of Manchester
- Last updated: 27/08/2021
+ Last updated: 17/08/2022
  By: Richard Kingston
  **/
 
@@ -39,7 +39,21 @@ var under5 = L.tileLayer.wms(cj_server, {
     transparent: true
 });
 
+var under5Heat = L.tileLayer.wms(cj_server, {
+    layers: 'cj18:under5',
+    tiled: true,
+    format: 'image/png',
+    transparent: true
+});
+
 var over75 = L.tileLayer.wms(cj_server, {
+    layers: 'cj18:over75',
+    tiled: true,
+    format: 'image/png',
+    transparent: true
+});
+
+var over75Heat = L.tileLayer.wms(cj_server, {
     layers: 'cj18:over75',
     tiled: true,
     format: 'image/png',
@@ -50,17 +64,33 @@ var ill_health = L.tileLayer.wms(cj_server, {
     layers: 'cj18:ill-health',
     tiled: true,
     format: 'image/png',
-    transparent: true
+    transparent: true,
 });
 
-var ill_d2d = L.tileLayer.wms(cj_server, {
+var dis_illHealth = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ill-d2d'
+});
+
+var ill_d2dHeat = L.tileLayer.wms(cj_server, {
     layers: 'cj18:ill-d2d',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ill-d2d'
+});
+
+var llti = L.tileLayer.wms(cj_server, {
+    layers: 'cj18:llti',
     tiled: true,
     format: 'image/png',
     transparent: true
 });
 
-var llti = L.tileLayer.wms(cj_server, {
+var lltiHeat = L.tileLayer.wms(cj_server, {
     layers: 'cj18:llti',
     tiled: true,
     format: 'image/png',
@@ -221,6 +251,13 @@ var crimeIMD = L.tileLayer.wms(cj_server, {
     transparent: true
 });
 
+var crimeIMDHeat = L.tileLayer.wms(cj_server, {
+    layers: 'cj18:crimeIMD',
+    tiles: true,
+    format: 'image/png',
+    transparent: true
+});
+
 var nfviRecover = L.tileLayer.wms(cj_server, {
     layers: 'cj18:nfvi_recover',
     tiles: true,
@@ -302,7 +339,8 @@ var pensioner = L.tileLayer.wms(cj_server, {
     layers: 'cj18:pensioner',
     tiles: true,
     format: 'image/png',
-    transparent: true
+    transparent: true,
+    styles: 'pensioner'
 });
 
 var loneParent = L.tileLayer.wms(cj_server, {
@@ -980,22 +1018,522 @@ var R_HZZ_CV30 = L.tileLayer.wms(cj_server, {
     styles: 'heat_R_HZZ_CV30'
 });
 
-// FINAL_SSVI_FLOOD_HEAT_04022014 maps
-var ZH_VULN_IN = L.tileLayer.wms(cj_server, {
-    layers: 'cj18:FINAL_SSVI_FLOOD_HEAT_04022014',
-    env: 'att:ZH_VULN_IN',
+// Heat exposure 2011 All_2011_heat_data_zscores
+var AbsM10Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
     tiles: true,
     format: 'image/png',
-    transparent: true
+    transparent: true,
+    styles: 'AbsM10Day'
+})
+
+var AbsM50Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsM50Day'
+})
+
+var AbsM90Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsM90Day'
+})
+
+var AbsL10Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsL10Day'
+})
+
+var AbsL50Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsL50Day'
+})
+
+var AbsL90Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsL90Day'
+})
+
+var AbsH10Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsH10Day'
+})
+
+var AbsH50Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsH50Day'
+})
+
+var AbsH90Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'AbsH90Day'
+})
+
+var ChM10Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM10Day'
+})
+
+var ChM50Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM50Day'
+})
+
+var ChM90Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM90Day'
+})
+
+var ChL10Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL10Day'
+})
+
+var ChL50Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL50Day'
+})
+
+var ChL90Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL90Day'
+})
+
+var ChH10Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH10Day'
+})
+
+var ChH50Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH50Day'
+})
+
+var ChH90Day = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH90Day'
+})
+
+var ChM10WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM10WD'
+})
+
+var ChM50WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM50WD'
+})
+
+var ChM90WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM90WD'
+})
+
+var ChL10WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL10WD'
+})
+
+var ChL50WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL50WD'
+})
+
+var ChL90WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL90WD'
+})
+
+var ChH10WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH10WD'
+})
+
+var ChH50WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH50WD'
+})
+
+var ChH90WD = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH90WD'
+})
+
+var ChM10WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM10WN'
+})
+
+var ChM50WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM50WN'
+})
+
+var ChM90WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChM90WN'
+})
+
+var ChL10WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL10WN'
+})
+
+var ChL50WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL50WN'
+})
+
+var ChL90WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChL90WN'
+})
+
+var ChH10WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH10WN'
+})
+
+var ChH50WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH50WN'
+})
+
+var ChH90WN = L.tileLayer.wms(cj_server, {
+    layers: 'All_2011_heat_data_zscores',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ChH90WN'
+})
+
+
+// FINAL_SSVI_FLOOD_HEAT_04022014 maps
+var ZH_VULN_IN = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'SSVI-flood-heat'
 })
 
 var SENS_IND = L.tileLayer.wms(cj_server, {
-    layers: 'cj18:FINAL_SSVI_FLOOD_HEAT_04022014',
-    env: 'att:SENS_IND',
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
     tiles: true,
     format: 'image/png',
-    transparent: true
+    transparent: true,
+    styles: 'SENS_IND'
 })
+
+// Exposure heat indexes
+var exposureHeat = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ZH_EXP_IND'
+})
+
+var builtup = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'built-up'
+})
+
+var nogarden = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'no-garden'
+})
+
+var notBlue = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'not-Blue'
+})
+
+var coast = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'coast'
+})
+
+var elevation = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'elevation'
+})
+
+var highRise = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'highRise'
+})
+
+var AbilityToPrepareIndex = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ZH_PREP_IN'
+})
+
+var unemployedHeat = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'unemployedHeat'
+});
+
+var lowIncomeOcc = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'lowIncomeOcc'
+});
+
+var LTunemployment = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'LTunemp'
+});
+
+var depChildUnempHeat = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'depChildUnemp'
+})
+
+var income_weekly = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'income_weekly'
+})
+
+var pensionerHH = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'pensionerHH'
+})
+
+var singlePen = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'singlePen'
+});
+
+var socRent = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'socRent'
+})
+
+var priRent = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'priRentt1'
+})
+
+var outsideUK = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'outsideUK'
+})
+
+var arrivalsUKheat = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'arrivalsUKHeat'
+})
+
+var AbilityRespondIndexHeat = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ZF_RESP_IN'
+})
+
+var noCarer  = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'noCarer'
+})
+
+var noCar  = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'noCar'
+})
+
+var roadDensity = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'roadDensity'
+})
+
+var retailDensity = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'retailDensity'
+})
+
+var enterprises = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'enterprises'
+})
+
+var ZF_REC_IND = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ZF_REC_IND'
+})
+
 
 // Fuel poverty maps
 var LA_FP_2012 = L.tileLayer.wms(cj_server, {
@@ -1041,23 +1579,23 @@ var LSOA_FP_2014 = L.tileLayer.wms(cj_server, {
 });
 
 // EA maps
-var flood_alert = L.tileLayer.wms(//'https://environment.data.gov.uk/spatialdata/flood-alert-areas/wms?', {
-    'https://environment.data.gov.uk/arcgis/services/EA/FloodAlertAreas/MapServer/WMSServer?', {
+var flood_alert = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/flood-alert-areas/wms?', {
     layers: 'Flood_Alert_Areas',
-    //info_format: 'application/geojson',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var flood_risk = L.tileLayer.wms(EA_server, { //'https://environment.data.gov.uk/spatialdata/flood-risk-areas/wms?', {
+var flood_risk = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/flood-risk-areas/wms?', {
     layers: 'EA:Flood_Risk_Areas',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var flood_benefit = L.tileLayer.wms(EA_server, { //'https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-areas-benefiting-from-defences/wms?'
+var flood_benefit = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-spatial-flood-defences-without-standardised-attributes/wms?', {
+    //https://environment.data.gov.uk/arcgis/rest/services/EA/FloodMapForPlanningRiversAndSeaSpatialFloodDefences/MapServer?', {
+    //https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-spatial-flood-defences-without-standardised-attributes/wfs?', {
     layers: 'EA:Areas_Benefiting_from_Flood_Defences',
     format: 'image/png',
     srs: 'EPSG:27700',

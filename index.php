@@ -119,10 +119,10 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 There's also a <a href="info17/CJ-infosheets-combined-2018_all.pdf" target="_blank" id="textLink">printable
                     version <span class="glyphicon glyphicon-new-window"></span></a> of the full set of information
                 sheets.</p-->
-            <h4>Current technical issues</h4>
-            <p class="text-danger">PLEASE NOTE: Due to a technical upgrade to the underlying base mapping all maps in
-                the 'Heat' section are still not
-                fully working. We've also disabled the registration system for the time being.</p>
+            <!--h4>Current technical issues</h4-->
+            <p class="text-danger"><!--PLEASE NOTE: Due to a technical upgrade to the underlying base mapping all maps in
+                the 'Heat' section are still not fully working. We've also disabled the registration system for the time being.-->
+                New heat maps for 2022 coming soon!</p>
             <p>You can remove all the map layers here: <img src="css/images/removeMap.png" height="20px"
                                                             alt="Remove map layers" title="Remove map layers"
                                                             onclick="Clear();"></p>
@@ -131,7 +131,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav nav-tabs" id="savedTab">
                     <li class="nav-item"><a href="#flood" class="nav-link active" data-toggle="tab">Flooding</a></li>
                     <li class="nav-item"><a href="#heat" class="nav-link" data-toggle="tab">Heat</a></li>
-                    <li class="nav-item"><a href="#fuel" class="nav-link" data-toggle="tab">Fuel Poverty</a></li>
+                    <!--li class="nav-item"><a href="#fuel" class="nav-link" data-toggle="tab">Fuel Poverty</a></li-->
                     <li class="nav-item"><a href="#agency" class="nav-link" data-toggle="tab">Government agency maps</a></li>
                     <li class="nav-item"><a href="#admin" class="nav-link" data-toggle="tab">Admin</a></li>
                 </ul>

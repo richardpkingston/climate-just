@@ -342,13 +342,13 @@ var floodMaps = [{
             radioGroup: 'single',
             layer: socialNet
         }, {
+            layer: pensioner,
             label: ' % single-pensioner households <a href="javascript:void(0);" data-href="info17/AT1_23_AT2_18.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
-            radioGroup: 'single',
-            layer: pensioner
+            radioGroup: 'single'
         }, {
+            layer: loneParentFlood,
             label: ' % lone-parent households with dependent children <a href="javascript:void(0);" data-href="info17/AT1_26_AT2_21.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
-            radioGroup: 'single',
-            layer: loneParent
+            radioGroup: 'single'
         }, {
             label: ' % children of primary school age (4-11) in the population',
             radioGroup: 'single',
@@ -1283,7 +1283,7 @@ var heatMaps = [{
             label: ' Single pensioner households (%)',
             radioGroup: 'single'
         }, {
-            layer: depChildUnempHeat,
+            layer: loneParent,
             label: ' Lone parents with dependent children (% households)',
             radioGroup: 'single'
         }, {
@@ -1353,76 +1353,77 @@ var heatMaps = [{
         }]
     }, {
         label: ' Social Networks',
-        collasped: true,
+        collapsed: true,
         children: [{
             layer: singlePen,
             label: ' Single pensioner households (%)',
             radioGroup: 'single'
-        }/*, {
-            layer: n_06_05_02_02,
+        }, {
+            layer: loneParent,
             label: ' Lone parents with dependent children (% households)',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_02_03,
+            layer: noCarer,
             label: ' Lack of carers (% people not providing unpaid care)',
             radioGroup: 'single'
         }]
     }, {
-        layer: n_06_05_03,
+        //layer: n_06_05_03,
         label: ' Mobility',
+        collapsed: true,
         children: [{
-            layer: ill_d2d,
+            layer: ill_d2dHeat,
             label: ' Disability (% people whose day-to-day activities are limited a lot)',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_03_02,
+            layer: noCar,
             label: ' Lack of private transport (% households with no car or van)',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_03_03,
+            layer: workAway,
             label: ' Working away from home (% not working at home)',
             radioGroup: 'single'
         }]
     }, {
-        layer: n_06_05_04,
         label: ' Service Areas',
+        collapsed: true,
         children: [{
-            layer: n_06_05_04_01,
+            layer: ttGP,
             label: ' Travel time to nearest GP by walk/public transport',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_02,
+            layer: min15GP,
             label: ' % of at risk population (no car) outside of 15 minutes by walk/public transport to nearest GP',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_03,
+            layer: less15GP,
             label: ' Number of GPs within 15 minutes by walk/public transport',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_04,
+            layer: less15GPcar,
             label: ' Number of GPs within 15 minutes by car',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_05,
+            layer: walkHosp,
             label: ' Travel time to nearest hospital by walk/public transport',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_06,
+            layer: carHosp,
             label: ' Travel time to nearest hospital by car',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_07,
+            layer: risk30WalkHosp,
             label: ' % of at risk population outside of 30 minutes by walk/PT to nearest hospital',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_08,
+            layer: less30minHospWalk,
             label: ' Number of hospitals within 30 minutes by walk/public transport',
             radioGroup: 'single'
         }, {
-            layer: n_06_05_04_09,
+            layer: less30minHospCar,
             label: ' Number of hospitals within 30 minutes by car',
             radioGroup: 'single'
-        }*/]
+        }]
     }]
 }];
 

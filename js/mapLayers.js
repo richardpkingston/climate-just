@@ -68,7 +68,7 @@ var ill_health = L.tileLayer.wms(cj_server, {
 });
 
 var dis_illHealth = L.tileLayer.wms(cj_server, {
-    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    layers: 'cj18:ill-d2d', //UK_New_CJ_Flood_Data_JOIN',
     tiled: true,
     format: 'image/png',
     transparent: true,
@@ -343,11 +343,20 @@ var pensioner = L.tileLayer.wms(cj_server, {
     styles: 'pensioner'
 });
 
-var loneParent = L.tileLayer.wms(cj_server, {
-    layers: 'cj18:loneParent',
+var loneParentFlood = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
     tiles: true,
     format: 'image/png',
-    transparent: true
+    transparent: true,
+    styles: 'loneParent'
+});
+
+var loneParent = L.tileLayer.wms(cj_server, {
+    layers: 'UK_New_CJ_Flood_Data_JOIN',
+    tiles: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'loneParent'
 });
 
 var age4_11 = L.tileLayer.wms(cj_server, {
@@ -1307,10 +1316,9 @@ var ChH90WN = L.tileLayer.wms(cj_server, {
     styles: 'ChH90WN'
 })
 
-
 // FINAL_SSVI_FLOOD_HEAT_04022014 maps
 var ZH_VULN_IN = L.tileLayer.wms(cj_server, {
-    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    layers: 'cj18:FINAL_SSVI_FLOOD_HEAT_04022014',
     tiles: true,
     format: 'image/png',
     transparent: true,
@@ -1438,7 +1446,7 @@ var pensionerHH = L.tileLayer.wms(cj_server, {
     styles: 'pensionerHH'
 })
 
-var singlePen = L.tileLayer.wms(cj_server, {
+var singlePen = L.tileLayer.wms(cj_server, { //
     layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
     tiles: true,
     format: 'image/png',
@@ -1486,7 +1494,7 @@ var AbilityRespondIndexHeat = L.tileLayer.wms(cj_server, {
     styles: 'ZF_RESP_IN'
 })
 
-var noCarer  = L.tileLayer.wms(cj_server, {
+var noCarer = L.tileLayer.wms(cj_server, {
     layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
     tiled: true,
     format: 'image/png',
@@ -1494,7 +1502,7 @@ var noCarer  = L.tileLayer.wms(cj_server, {
     styles: 'noCarer'
 })
 
-var noCar  = L.tileLayer.wms(cj_server, {
+var noCar = L.tileLayer.wms(cj_server, {
     layers: 'UK_New_CJ_Flood_Data_JOIN',
     tiled: true,
     format: 'image/png',
@@ -1524,6 +1532,86 @@ var enterprises = L.tileLayer.wms(cj_server, {
     format: 'image/png',
     transparent: true,
     styles: 'enterprises'
+})
+
+var workAway = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'workAway'
+})
+
+var ttGP = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'ttGP'
+})
+
+var min15GP = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'min15GP'
+})
+
+var less15GP = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'less15GP'
+})
+
+var less15GPcar = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'less15GPcar'
+})
+
+var walkHosp = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'walkHosp'
+})
+
+var carHosp = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'carHosp'
+})
+
+var risk30WalkHosp = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'risk30WalkHosp'
+})
+
+var less30minHospWalk = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'less30minHospWalk'
+})
+
+var less30minHospCar = L.tileLayer.wms(cj_server, {
+    layers: 'FINAL_SSVI_FLOOD_HEAT_04022014',
+    tiled: true,
+    format: 'image/png',
+    transparent: true,
+    styles: 'less30minHospCar'
 })
 
 var ZF_REC_IND = L.tileLayer.wms(cj_server, {

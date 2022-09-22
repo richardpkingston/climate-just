@@ -120,9 +120,9 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
                     version <span class="glyphicon glyphicon-new-window"></span></a> of the full set of information
                 sheets.</p-->
             <!--h4>Current technical issues</h4-->
-            <p class="text-danger"><!--PLEASE NOTE: Due to a technical upgrade to the underlying base mapping all maps in
+            <h6 class="text-primary" style="padding-top: 10px"><!--PLEASE NOTE: Due to a technical upgrade to the underlying base mapping all maps in
                 the 'Heat' section are still not fully working. We've also disabled the registration system for the time being.-->
-                New heat maps for 2022 coming soon!</p>
+                New heat maps and other updated data for 2022 coming soon!</h6>
             <p>You can remove all the map layers here: <img src="css/images/removeMap.png" height="20px"
                                                             alt="Remove map layers" title="Remove map layers"
                                                             onclick="Clear();"></p>

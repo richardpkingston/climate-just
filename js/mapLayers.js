@@ -7,8 +7,8 @@
 // var url_ukcp18 = 'https://maps.tellus-toolkit.com/geoserver/ukcp18/wcs?';
 // var url_nhs = 'https://maps.tellus-toolkit.com/geoserver/gwc/service/wms?';
 var cj_server = 'https://maps.tellus-toolkit.com/geoserver/cj18/wms?';
-var EA_server = 'https://maps.tellus-toolkit.com/geoserver/EA/wms?';
 var admin_server = 'https://maps.tellus-toolkit.com/geoserver/admin/wms?';
+var EA_server = 'https://environment.data.gov.uk/spatialdata/';
 
 // NFVI maps
 var nfvi = L.tileLayer.wms(cj_server, {
@@ -1667,81 +1667,114 @@ var LSOA_FP_2014 = L.tileLayer.wms(cj_server, {
 });
 
 // EA maps
-var flood_alert = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/flood-alert-areas/wms?', {
+var flood_alert = L.tileLayer.wms(EA_server + 'flood-alert-areas/wms?', {
     layers: 'Flood_Alert_Areas',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var flood_risk = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/flood-risk-areas/wms?', {
-    layers: 'EA:Flood_Risk_Areas',
+var flood_risk = L.tileLayer.wms(EA_server + 'flood-risk-areas/wms?', {
+    layers: 'Flood_Risk_Areas',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var flood_benefit = L.tileLayer.wms('https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-spatial-flood-defences-without-standardised-attributes/wms?', {
-    //https://environment.data.gov.uk/arcgis/rest/services/EA/FloodMapForPlanningRiversAndSeaSpatialFloodDefences/MapServer?', {
-    //https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-spatial-flood-defences-without-standardised-attributes/wfs?', {
-    layers: 'EA:Areas_Benefiting_from_Flood_Defences',
+var flood_benefit = L.tileLayer.wms(EA_server + 'flood-map-for-planning-rivers-and-sea-areas-benefiting-from-defences/wms?', {
+    layers: 'Flood_Map_for_Planning_Rivers_and_Sea_Areas_Benefiting_from_Flood_Defences',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var flood_zone2 = L.tileLayer.wms(EA_server, { // 'https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-flood-zone-2/wms?', {
-    layers: 'EA:Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_2',
+var flood_zone2 = L.tileLayer.wms(EA_server + 'flood-map-for-planning-rivers-and-sea-flood-zone-2/wms?', {
+    layers: 'Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_2',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var flood_zone3 = L.tileLayer.wms(EA_server, { // 'https://environment.data.gov.uk/spatialdata/flood-map-for-planning-rivers-and-sea-flood-zone-3/wms?', {
-    layers: 'EA:Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_3',
+var flood_zone3 = L.tileLayer.wms(EA_server + 'flood-map-for-planning-rivers-and-sea-flood-zone-3/wms?', {
+    layers: 'Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_3',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-/*var historicFlood = L.tileLayer.wms(EA_server, { // 'https://environment.data.gov.uk/spatialdata/historic-flood-map/wms?', {
-    layers: 'EA:Historic_Flood_Map',
+/*var historicFlood = L.tileLayer.wms(EA_server + 'historic-flood-map/wms?', {
+    layers: 'Historic_Flood_Map',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });*/
 
-var recordedFlood = L.tileLayer.wms(EA_server, { // 'https://environment.data.gov.uk/spatialdata/recorded-flood-outlines/wms?', {
-    layers: 'EA:Recorded_Flood_Outlines',
+var recordedFlood = L.tileLayer.wms(EA_server + 'recorded-flood-outlines/wms?', {
+    layers: 'Recorded_Flood_Outlines',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var Risk_of_Flooding_from_Rivers_and_Sea = L.tileLayer.wms(EA_server, { // 'https://environment.data.gov.uk/spatialdata/risk-of-flooding-from-rivers-and-sea/wms?', {
-    layers: 'EA:Risk_of_Flooding_from_Rivers_and_Sea',
+var Risk_of_Flooding_from_Rivers_and_Sea = L.tileLayer.wms(EA_server + 'risk-of-flooding-from-rivers-and-sea/wms?', {
+    layers: 'Risk_of_Flooding_from_Rivers_and_Sea',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var saltmarsh = L.tileLayer.wms(EA_server, { // 'https://environment.data.gov.uk/spatialdata/saltmarsh-extents-and-zonation/wms?', {
-    layers: 'EA:Saltmarsh_Extents_and_Zonation',
+var saltmarsh = L.tileLayer.wms(EA_server + 'saltmarsh-extents-and-zonation/wms?', {
+    layers: 'Saltmarsh_Extents_and_Zonation',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
 // Natural Resources Wales
-var NRW_FLOODMAP_FLOOD_DEFENCES = L.tileLayer.wms('http://lle.gov.wales/services/wms/nrw?', {
-    layers: 'NRW_FLOODMAP_FLOOD_DEFENCES',
+var NRW_FLOOD_WATCH_AREAS = L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?' ,{
+    layers: 'NRW_FLOOD_WATCH_AREAS',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
 });
 
-var NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE = L.tileLayer.wms('http://lle.gov.wales/services/wms/nrw?', {
+var NRW_FLOOD_RISK_AREAS = L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?' ,{
+    layers: 'NRW_FLOOD_RISK_AREAS',
+    format: 'image/png',
+    srs: 'EPSG:27700',
+    transparent: true
+});
+
+var NRW_FLOODMAP_FLOOD_DEFENCES = L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?', {
+    layers: 'NRW_SPATIAL_FLOOD_DEFENCES_WITH_ATTRIBUTES',
+    format: 'image/png',
+    srs: 'EPSG:27700',
+    transparent: true
+});
+
+var NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE = L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?' ,{
     layers: 'NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE',
+    format: 'image/png',
+    srs: 'EPSG:27700',
+    transparent: true
+});
+
+var FloodMapforPlanningFloodZones2and3 = L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?' ,{
+    layers: 'FloodMapforPlanningFloodZones2and3',
+    format: 'image/png',
+    srs: 'EPSG:27700',
+    transparent: true
+});
+
+var NRW_HISTORIC_FLOODMAP = L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?' ,{
+    layers: 'NRW_HISTORIC_FLOODMAP',
+    format: 'image/png',
+    srs: 'EPSG:27700',
+    transparent: true
+});
+
+var FloodRiskAssessmentWales= L.tileLayer.wms('https://datamap.gov.wales/geoserver/inspire-nrw/wfs?' ,{
+    layers: 'FloodRiskAssessmentWales',
     format: 'image/png',
     srs: 'EPSG:27700',
     transparent: true
@@ -1773,8 +1806,7 @@ var scot_urban = L.tileLayer.wms(admin_server, {
     layers: 'admin:Settlements2016_MHW',
     format: 'image/png',
     srs: 'EPSG:27700',
-    transparent: true,
-    style: 'poly.sld'
+    transparent: true
 });
 
 var westminster = L.tileLayer.wms(admin_server, {

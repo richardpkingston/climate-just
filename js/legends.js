@@ -33,7 +33,9 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=over75>'
         }]
     }, {
-        name: 'Disability / people in ill-health (% people whose day-to-day activities are limited)', layer: dis_illHealth, elements: [{
+        name: 'Disability / people in ill-health (% people whose day-to-day activities are limited)',
+        layer: dis_illHealth,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=ill-d2d&STYLE=ill-d2d>'
         }]
 
@@ -82,7 +84,9 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=information>'
         }]
     }, {
-        name: 'Recent arrivals to UK (% people with <1 yr residency coming from outside UK)', layer: arrivalsUK, elements: [{
+        name: 'Recent arrivals to UK (% people with <1 yr residency coming from outside UK)',
+        layer: arrivalsUK,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=arrivalsUK>'
         }]
     }, {
@@ -210,7 +214,9 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&STYLE=ttGP>'
         }]
     }, {
-        name: '% of at risk population (no car) outside of 15 minutes by walk/public transport to nearest GP', layer: min15GP, elements: [{
+        name: '% of at risk population (no car) outside of 15 minutes by walk/public transport to nearest GP',
+        layer: min15GP,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&STYLE=min15GP>'
         }]
     }, {
@@ -230,7 +236,9 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&STYLE=carHosp>'
         }]
     }, {
-        name: '% of at risk population outside of 30 minutes by walk/PT to nearest hospital', layer: risk30WalkHosp, elements: [{
+        name: '% of at risk population outside of 30 minutes by walk/PT to nearest hospital',
+        layer: risk30WalkHosp,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&STYLE=risk30WalkHosp>'
         }]
     }, {
@@ -724,39 +732,57 @@ var legend = L.control.htmllegend({
         }]
     }, {
         // Heat exposure 2011 All_2011_heat_data_zscores
-        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  Low estimate (10th percentile)', layer: AbsM10Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  Low estimate (10th percentile)',
+        layer: AbsM10Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsM10Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  Central estimate (50th percentile)', layer: AbsM50Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  Central estimate (50th percentile)',
+        layer: AbsM50Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsM50Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  High estimate (90th percentile)', layer: AbsM90Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  Medium emissions scenario =>  High estimate (90th percentile)',
+        layer: AbsM90Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsM90Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  Low estimate (10th percentile)', layer: AbsL10Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  Low estimate (10th percentile)',
+        layer: AbsL10Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsL10Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  Central estimate (50th percentile)', layer: AbsL50Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  Central estimate (50th percentile)',
+        layer: AbsL50Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsL50Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  High estimate (90th percentile)', layer: AbsL90Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  Low emissions scenario =>  High estimate (90th percentile)',
+        layer: AbsL90Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsL90Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  Low estimate (10th percentile)', layer: AbsH10Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  Low estimate (10th percentile)',
+        layer: AbsH10Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsH10Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  Central estimate (50th percentile)', layer: AbsH50Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  Central estimate (50th percentile)',
+        layer: AbsH50Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsH50Day>'
         }]
     }, {
-        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  High estimate (90th percentile)', layer: AbsH90Day, elements: [{
+        name: 'Mean summer maximum temperature 2050s ->  High emissions scenario =>  High estimate (90th percentile)',
+        layer: AbsH90Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=AbsH90Day>'
         }]
     }, {
@@ -778,7 +804,9 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM90Day>'
         }]
     }, {
-        name: 'Change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)', layer: ChL10Day, elements: [{
+        name: 'Change in mean summer maximum temperature baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)',
+        layer: ChL10Day,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL10Day>'
         }]
     }, {
@@ -884,7 +912,9 @@ var legend = L.control.htmllegend({
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChM90WN>'
         }]
     }, {
-        name: 'Change in temperature of the warmest night baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)', layer: ChL10WN, elements: [{
+        name: 'Change in temperature of the warmest night baseline to 2050s -> Low emissions scenario -> Low estimate (10th percentile)',
+        layer: ChL10WN,
+        elements: [{
             html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=All_2011_heat_data_zscores&style=ChL10WN>'
         }]
     }, {
@@ -973,7 +1003,9 @@ var legend = L.control.htmllegend({
                 html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=LTunemp>'
             }]
         }, {
-            name: 'Households with dependent children and no adults in employment (%)', layer: depChildUnempHeat, elements: [{
+            name: 'Households with dependent children and no adults in employment (%)',
+            layer: depChildUnempHeat,
+            elements: [{
                 html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=UK_New_CJ_Flood_Data_JOIN&style=depChildUnemp>'
             }]
         }, {
@@ -1017,7 +1049,9 @@ var legend = L.control.htmllegend({
                 html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=roadDensity>'
             }]
         }, {
-            name: 'Density of retail units (Number of enterprises divided by the area of MSOA)', layer: retailDensity, elements: [{
+            name: 'Density of retail units (Number of enterprises divided by the area of MSOA)',
+            layer: retailDensity,
+            elements: [{
                 html: '<img src=' + cj18_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=FINAL_SSVI_FLOOD_HEAT_04022014&style=retailDensity>'
             }]
         }, {
@@ -1058,47 +1092,86 @@ var legend = L.control.htmllegend({
             }]
         }, {
             // EA maps
-            name: 'EA Flood Alert Areas', layer: flood_alert, elements: [{
+            name: 'EA Flood Alert Areas',
+            layer: flood_alert,
+            elements: [{
                 html: '<img src=' + EA_legend + 'flood-alert-areas/wms?request=GetLegendGraphic&version=1.3.0&format=image/png&layer=Flood_Alert_Areas&style=default>'
             }]
         }, {
-            name: 'EA Flood Risk Areas', layer: flood_risk, elements: [{
+            name: 'EA Flood Risk Areas',
+            layer: flood_risk,
+            elements: [{
                 html: '<img src=' + EA_legend + 'flood-risk-areas/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;layer=Flood_Risk_Areas&amp;style=default>'
             }]
         }, {
-            name: 'EA Areas Benefiting from Defences', layer: flood_benefit, elements: [{
+            name: 'EA Areas Benefiting from Defences',
+            layer: flood_benefit,
+            elements: [{
                 html: '<img src=' + EA_legend + 'flood-map-for-planning-rivers-and-sea-areas-benefiting-from-defences/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;layer=Flood_Map_for_Planning_Rivers_and_Sea_Areas_Benefiting_from_Flood_Defences&amp;style=default>'
             }]
         }, {
             name: 'EA Flood Zone 2', layer: flood_zone2, elements: [{
-                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_2>'
+                html: '<img src=' + EA_legend + 'flood-map-for-planning-rivers-and-sea-flood-zone-2/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;layer=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_2&amp;style=default>'
             }]
         }, {
             name: 'EA Flood Zone 3', layer: flood_zone3, elements: [{
-                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_3>'
+                html: '<img src=' + EA_legend + 'flood-map-for-planning-rivers-and-sea-flood-zone-3/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;layer=Flood_Map_for_Planning_Rivers_and_Sea_Flood_Zone_3&amp;style=default>'
             }]
         }, {
             name: 'EA Recorded Flood Outlines', layer: recordedFlood, elements: [{
-                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Recorded_Flood_Outlines>'
+                html: '<img src=' + EA_legend + 'recorded-flood-outlines/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;&layer=Recorded_Flood_Outlines&amp;style=default>'
             }]
         }, {
             name: 'EA Risk of Flooding from Rivers and Sea', layer: Risk_of_Flooding_from_Rivers_and_Sea, elements: [{
-                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Risk_of_Flooding_from_Rivers_and_Sea>'
+                html: '<img src=' + EA_legend + 'risk-of-flooding-from-rivers-and-sea/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;&layer=Risk_of_Flooding_from_Rivers_and_Sea&amp;style=default>'
             }]
         }, {
             name: 'EA Saltmarsh extents', layer: saltmarsh, elements: [{
-                html: '<img src=' + EA_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=Saltmarsh_Extents_and_Zonation>'
+                html: '<img src=' + EA_legend + 'saltmarsh-extents-and-zonation/wms?request=GetLegendGraphic&amp;version=1.3.0&amp;format=image/png&amp;&layer=Saltmarsh_Extents_and_Zonation&amp;style=default>'
             }]
         }, {
             // Wales
-            name: 'NRW Flood Defences', layer: NRW_FLOODMAP_FLOOD_DEFENCES, elements: [{
-                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_FLOODMAP_FLOOD_DEFENCES>'
+            name: 'Flood alert areas',
+            layer: NRW_FLOOD_WATCH_AREAS,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=NRW_FLOOD_WATCH_AREAS>'
             }]
         }, {
-            name: 'NRW Areas Benefiting from Flood Defences', layer: NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE, elements: [{
+            name: 'NRW Flood Risk Areas',
+            layer: NRW_FLOOD_RISK_AREAS,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=NRW_FLOOD_RISK_AREAS>'
+            }]
+        }, {
+            name: 'NRW Flood Defences', layer: NRW_FLOODMAP_FLOOD_DEFENCES, elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=NRW_SPATIAL_FLOOD_DEFENCES_WITH_ATTRIBUTES>'
+            }]
+        }, {
+            name: 'NRW Areas Benefiting from Flood Defences',
+            layer: NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE,
+            elements: [{
                 html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE>'
             }]
         }, {
+            name: 'NRW Areas Benefiting from Flood Defences',
+            layer: FloodMapforPlanningFloodZones2and3,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:FloodMapforPlanningFloodZones2and3>'
+            }]
+        }, {
+            name: 'Recorded Flood Extents',
+            layer: NRW_HISTORIC_FLOODMAP,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:NRW_HISTORIC_FLOODMAP>'
+            }]
+        }, {
+            name: 'Flood Risk Assessment',
+            layer: FloodRiskAssessmentWales,
+            elements: [{
+                html: '<img src=https://lle.gov.wales/services/wms/nrw?service=WMS&request=GetLegendGraphic&format=image/png&width=20&height=20&layer=inspire-nrw:FloodRiskAssessmentWales>'
+            }]
+        }, {
+            // Admin layers
             name: 'UK Wards', layer: wards, elements: [{
                 html: '<img src=' + admin_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=wards_2021>'
             }]
@@ -1376,7 +1449,11 @@ var legend = L.control.htmllegend({
                 elements: [{
                     html: '<img src=' + nhs_legend + 'REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=air_spring_10>'
                 }]
-            }*/], collapseSimple: true, detectStretched: false, visibleIcon: 'leaflet-html-legend-icon-eye', hiddenIcon: 'leaflet-html-legend-icon-eye-slash'
+            }*/],
+    collapseSimple: true,
+    detectStretched: false,
+    visibleIcon: 'leaflet-html-legend-icon-eye',
+    hiddenIcon: 'leaflet-html-legend-icon-eye-slash'
 });
 
 map.addControl(legend);

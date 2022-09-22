@@ -452,7 +452,10 @@ var agencyMaps = [{
         }, {
             label: ' Recorded Flood Outlines (Min Scale: 4,000,000)',
             layer: recordedFlood
-        }, {
+        }, /*{
+            label: ' Historic Flood Outlines (Min Scale: 4,000,000)',
+            layer: historicFlood
+        },*/ {
             label: ' Risk of Flooding from Rivers and Sea (Min Scale: 200,000)',
             layer: Risk_of_Flooding_from_Rivers_and_Sea
         }, {
@@ -460,25 +463,32 @@ var agencyMaps = [{
             layer: saltmarsh
         }]
     }, {
-        label: ' SEPA <a href="javascript:void(0);" data-href="info17/SEPA_maps.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
-        collapsed: true,
-        children: [{
-            label: ' Layers to follow', //River flooding',
-            //layer: urban
-        }/*, {
-                label: ' Surface flooding',
-                layer: urban
-            }*/]
-    }, {
         label: ' Natural Resources Wales <a href="javascript:void(0);" data-href="info17/NRW_maps.html" class="openPopup"><i class="fas fa-info-circle"></i></a>',
         collapsed: true,
         children: [{
-            label: ' Flood defences', //River flooding',
+            label: ' Flood alert areas',
+            layer: NRW_FLOOD_WATCH_AREAS
+        }, {
+            label: ' Flood risk areas',
+            layer: NRW_FLOOD_RISK_AREAS
+        }, {
+            label: ' Flood defences',
             layer: NRW_FLOODMAP_FLOOD_DEFENCES
         }, {
             label: ' Areas Benefiting from Flood Defences',
             layer: NRW_AREA_BENEFITING_FROM_FLOOD_DEFENCE
+        }, {
+            label: ' Flood Zones 2 &amp; 3',
+            layer: FloodMapforPlanningFloodZones2and3
+        }, {
+            label: ' Recorded Flood Extents',
+            layer: NRW_HISTORIC_FLOODMAP
+        }, {
+            label: ' Flood Risk Assessment',
+            layer: FloodRiskAssessmentWales
         }]
+    }, {
+        label: ' SEPA does not provide map layers. <a href="javascript:void(0);" data-href="info17/SEPA_maps.html" class="openPopup"><i class="fas fa-info-circle"></i></a>'
     }]
 }];
 
